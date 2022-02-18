@@ -1,0 +1,254 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../../img/interfaz_externa/login/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 120%;
+    z-index: 0;
+}
+
+/* COMIENZO MENU */
+header{
+    color: white;
+    width: 100%;
+    height: 160px;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    z-index:500;
+    background-image: url(../../img/interfaz_externa/login/9.png);
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-position:100%;
+}
+
+header img{
+    margin-left: 8%;
+    display: inline;
+    width: 90px;
+    margin-top: 20px;
+    float: left; 
+    object-fit: cover;
+}
+
+header h1{
+    font-size: 50px;
+    color: white;
+    line-height: 70px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 20px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-left: 5px solid #e429e4;
+    font-family:'Franklin Gothic Medium';
+}
+
+header h1{
+    color:white;
+}
+
+header nav{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    text-align: right;
+    padding-right: 50px;
+}
+
+header nav a{
+    
+    color: white;
+    font-weight: 600;
+    display: inline-block;
+    padding: 13px 20px;
+    margin-right: -5px;
+    text-decoration: none;
+}
+
+header nav a:hover{
+    color: black;
+    background-color: white;
+    border-bottom: 4px solid #e429e4;
+    border-radius: 15px;
+}
+
+span{
+    color: #e429e4;
+}
+
+/* FIN MENU */
+
+.form-box{
+    width: 380px;
+    height: 440px;
+    position: relative;
+    margin:2% auto;
+    background: rgba(0, 0, 0, 0.562) ;
+    padding: 10px;
+    overflow: hidden;
+    border: 1px solid #B621B5;
+   
+}
+
+.input-group-login .titulo_login{
+    color: white;
+    position: absolute;
+    margin-top: -2.3em;
+    margin-left: 1.5em;
+    font-size: 30px;
+}
+
+.button-box{
+    width: 300px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+
+}
+
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    position: relative;
+    display: inline-block;
+    border-radius: 30px;
+    width: 145px;
+    color: white;
+}
+
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 130px;
+    height: 100%;
+    background: #B621B5;
+    border-radius: 30px;
+    width: 145px;
+    transition: .5s;
+   
+}
+
+.input-group-login{
+    top: 120px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-group-register{
+    top:88px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top:0 ;
+    border-right: 0;
+    border-bottom: 1px solid #B621B5;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    
+}
+
+.input-field::placeholder{
+    color: rgba(255, 255, 255, 0.596);
+}
+
+
+.input-cargo{
+    color: rgba(255, 255, 255, 0.596);
+}
+
+.input-cargo-options{
+    padding: 5px;
+    margin: 8px;
+    border-radius: 15px;
+    background:transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.input-cargo-options:hover, .input-cargo-options option:hover{
+    cursor: pointer;
+}
+
+.input-cargo-options option{
+    background: black
+}
+
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: #B621B5;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    color: white;
+    margin-top: 40px;
+    transition: .5s;
+}
+
+.submit-btn:hover{
+    background: #e429e4 ;
+}
+
+.check-box{
+    margin: 30px 10px 34px 0;
+
+}
+
+span {
+    color: #777;
+    font-size:12px;
+    bottom: 68px;
+    position: absolute;
+
+}
+
+#login{
+    left: 50px;
+}
+
+#login input{
+    color: white;
+    font-size:15;
+}
+
+#register{
+    left: 450px;
+}
+
+#register input{
+    color: white;
+    font-size: 15;
+}
+
+.input-group-register .titulo_register{
+    color: white;
+    position: absolute;
+    margin-top: -3.3em;
+    margin-left: 1em;
+}
+
