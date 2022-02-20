@@ -104,10 +104,11 @@ header p{
 /* CONTENEDORES TEXTO */
 .cards{
     width: 900px;
-    height: 350px;
+    height: 400px;
     margin-top: 130px;
     padding: 10px 10px;
     margin-left: 250px;
+    position: absolute;
 }
 
 .cards:hover .imagen{
@@ -155,6 +156,10 @@ header p{
     border-radius: 10px;
     color: #002a3f;
     font-size: 18px;
+    text-align: left;
+    height: 8.5em;
+    width: 20em;
+    transition: all 1s;
  
 }
 
@@ -206,7 +211,7 @@ header p{
 }
 
 .titulo_cards2{
-    text-align: right;
+    text-align: center;
     margin-right: 10px;
     color: #00AAF7;
     font-size: 30px;
