@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,14 +25,13 @@
     <div id="login-form" class="login-page"> <br><br><br><br><br><br><br><br>
         <div class="form-box">
             
-            <!--<div class="button-box">
+            <div class="button-box">
                 <div id="btn"></div>
                 <button type="button" onclick="login()" class="toggle-btn">Iniciar Sesion</button>
                 <button type="button" onclick="register()" class="toggle-btn">Registrarse</button>
-            </div> -->
-
+            </div> 
             <!--iniciar sesion-->
-            <form id="login" class="input-group-login" action="php/registrar/ingresar.php" method="POST">
+            <form id="login" class="input-group-login" action="../../controllers/ingresar.php" method="POST">
                 <h2 class="titulo_login">Inicio de Sesion</h2>
                 <input type="text" name="n_usuario" class="input-field" placeholder="Nombre de usuario" required>
                 <input type="password" name="contra" class="input-field" placeholder="Contraseña" required>
@@ -45,15 +45,14 @@
                 <button type="submit" name="btn" class="submit-btn" >Iniciar Sesion</button>
             </form>
 
-            <!--registrar
-            <form id="register" class="input-group-register" action="registrar.php" method="post">
+            <!--registrar-->
+            <form id="register" class="input-group-register" action="../../controllers/registrar.php" method="post">
                 <h2 class="titulo_register">Registro de formadores</h2>
                 <input type="text" class="input-field" name="n_completo" placeholder="Nombre Completo" required>
                 <input type="number" class="input-field" name="edad" placeholder="Edad" required>
                 <input type="number" class="input-field" name="n_tel"  placeholder="Numero de telefono" required>
                 <input type="email" class="input-field" name="email" placeholder="Correo Electronico" required>
                 <input type="text" class="input-field" name="n_usuario" placeholder="Nombre de usuario" required>
-                <input type="number" class="input-field" name="contrato" placeholder="Numero de contrato" required>
                 <input type="password" class="input-field" name="contra" placeholder="contraseña" required>
                 <input type="password" class="input-field" name="c_contra" placeholder="Confimar Contraseña" required>
                 <input type="number" name="cargo" value="2" hidden>
@@ -90,6 +89,6 @@
             }
         }
     </script>
-    -->
+  
 </body>
 </html>

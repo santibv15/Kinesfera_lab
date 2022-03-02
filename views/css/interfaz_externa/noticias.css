@@ -4,13 +4,6 @@
     box-sizing: border-box;
 }
 
-body{
-    height: 120%;
-    z-index: 0;
-    
-}
-
-
 header{
     color: white;
     width: 100%;
@@ -86,6 +79,100 @@ span{
 
 /* Clients */
 
+/* COMIENZO A HACER LAS TARGETAS DE EVENTOS*/
+
+.wrapper{
+    display: flex;
+    width: 95%;
+    justify-content: space-around;
+    margin-top: 6em;
+    
+}
+
+.event{
+    width: 370px;
+    height: 450px;
+    padding: 2rem 1rem;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0px 7px 10px rgb(0,0,0,0.5);
+    margin-left: 25px;
+}
+
+.event:hover{
+    transform:translateY(20px) ;
+}
+
+.event:before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,176,155,0.5), rgba(150,201,61,1)) ;
+    z-index: 2;
+    transition: 00.5s all;
+    opacity: 0;
+}
+
+.event:hover:before{
+    opacity: 1;
+}
+
+.event img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.event .info{
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s all;
+   
+
+}
+
+.event:hover .info{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.event .info h1{
+    letter-spacing: 1px;
+    font-size: 30px;
+    margin-top: 4px;
+    margin-bottom: 40px;
+   
+}
+
+.event .info .btn{
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color:#000;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    margin-top: 10px;
+    
+}
+
+
+
+
 
 
 .clientes_contenedor{
@@ -132,58 +219,6 @@ span{
     text-decoration: none;
 }
 
-/*  Our team 
-
-.titulo{
-    color: black;
-    text-align: center;
-    margin-top: 2% ;
-    font-family: 'Anton', sans-serif;
-    font-family: 'Shippori Antique', sans-serif;
-}
-
-.about-services{
-    border-radius: 5px;
-    margin-top: 200px;
-    margin-left: 200px;
-    margin: auto;
-    font-family: 'Anton', sans-serif;
-    font-family: 'Shippori Antique', sans-serif;
-}
-
-
-.servicio-cont{
-    display:flex;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.servicio-ind{
-    border-radius: 5px;
-    width: 25%;
-    height: 90%;
-    background: rgb(51, 51, 51);
-}
-
-.servicio-ind img{
-    width: 20em;
-    height: 25em;
-    margin-top: 18px;
-}
-
-.servicio-ind h3{
-    margin: 10px 0;
-    color: white;
-    font-size: 30px;
-}
-
-.servicio-ind p{
-    font-size: 22px;
-    color: white;
-    text-align: justify;
-    margin: 20px;   
-}
-*/
 
 .contenedor_imagenes{
     width:80%;
