@@ -21,7 +21,7 @@ header{
     top: 0;
     overflow: hidden;
     transition: all 0.5s ease;
-    z-index:500;
+    z-index:1;
     background-image: url(../../img/interfaz_externa/login/9.png);
     background-size: cover ;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@ header h1{
     margin-bottom: 5px;
     display: inline-block;
     transition: all 0.3s ease;
-    border-left: 5px solid white;
+    border-left: 5px solid #e429e4;
     font-family:'Franklin Gothic Medium';
 }
 
@@ -81,22 +81,20 @@ header nav a:hover{
     border-radius: 15px;
 }
 
-span{
-    color: #e429e4;
-}
+
 
 /* FIN MENU */
 
 .form-box{
     width: 380px;
-    height: 480px;
+    height: 470px;
     position: relative;
     margin:2% auto;
     background: rgba(0, 0, 0, 0.562) ;
     padding: 10px;
     overflow: hidden;
     border: 1px solid #B621B5;
-   
+    margin-top:9em;
 }
 
 .input-group-login .titulo_login{
@@ -105,6 +103,7 @@ span{
     margin-top: -4em;
     margin-left: 1.5em;
     font-size: 30px;
+    font-family:'Franklin Gothic Medium';
 }
 
 .button-box{
@@ -252,5 +251,6 @@ span {
     margin-left: 2.4em;
     font-size: 30px;
     text-align: center;
+    font-family:'Franklin Gothic Medium';
 }
 
