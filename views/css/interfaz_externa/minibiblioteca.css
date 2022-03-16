@@ -87,19 +87,27 @@ span{
 
 /*INICIO DE CAJAS LIBROS*/
 
-.contenedor_cajas{
+.contenedor1{
     
-    position:absolute;
-    height: 33em;
+    position:relative;
+    height: 30em;
     width: 100%;
-    margin: 9em auto;
+    margin-top: 11em;
+    
+}
+
+.contenedor2{
+    position: relative;
+    height: 30em;
+    width: 100%;
+    margin-top: 1%;
 }
 
 .contenedor_cajas h1{
     text-align: center;
     margin-top: .3em;
     background-color: black;
-    color:white;
+    color:#FFC215;
 }
 
 .contenedor_cajas .caja{
@@ -109,36 +117,82 @@ span{
     position:absolute;
     display: inline-block;
     margin-left:.5em;
-    margin-top:1em;   
- 
-}
-
-.contenedor_cajas .caja img{
-    width: 92%;
-    height: 90%;
-    margin-left: 4%;
-    margin-top: .4em;
-
+    margin-top:1em;
+    transition: width .1s;
 }
 .contenedor_cajas .caja h2{
     text-align: center;
     color: white;
+    display:none;
+    
+}
+
+.contenedor_cajas .caja p{
+    display: none;
+    color: white;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 1.2em;
+    position: absolute;
+   
+}
+
+.contenedor_cajas .caja:active h2{
+    display: block;
+}
+
+.contenedor_cajas .caja:active p{
+    display: inline-block;
+}
+.contenedor_cajas .caja1:active{
+    width: 41%;
+    z-index: 200;
+}
+.contenedor_cajas .caja2:active{
+    width: 43%;
+    z-index: 200;
+}
+
+.contenedor_cajas .caja:active img{
+    display:none;
+}
+
+.contenedor_cajas .caja3:active{
+    left: 28%;
+    width: 40%;
+    z-index: 200;
+}
+
+.contenedor_cajas .caja4:active{
+    left: 52%;
+    width: 40%;
+    z-index: 200;
+}
+
+.contenedor_cajas .caja img{
+    width: 92%;
+    height: 96%;
+    margin-left: 4%;
+    margin-top: .4em;
+
 }
 
 .caja1{
- left: 0;
+ left: 5%;
 }
 
+
+
 .caja2{
-    left: 20em;
+    left: 28%;
 }
 
 .caja3{
-    left: 40em;
+    left: 52%;
 }
 
 .caja4{
-    left: 60em;
+    left: 75%;
 }
 
 
