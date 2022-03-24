@@ -87,7 +87,7 @@ header nav a:hover{
 
 .form-box{
     width: 380px;
-    height: 510px;
+    height: 500px;
     position: relative;
     margin:2% auto;
     background: rgba(0, 0, 0, 0.562) ;
@@ -151,13 +151,14 @@ header nav a:hover{
     top:125px;
     position: absolute;
     width: 280px;
+    height: 80px;
     transition: .5s;
 }
 
 .input-field{
     height: 30%;
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 0px;
     margin: 5px 0;
     border-left: 0;
     border-top:0 ;

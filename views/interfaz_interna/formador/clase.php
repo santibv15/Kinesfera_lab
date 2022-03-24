@@ -1,10 +1,10 @@
 <?php
 // Llamar la conexión
-include "../../../models/conexion.php";
+include "../../../bd/Conexion.php";
 // Iniciar trabajo con sessiones
 session_start();
 // verificar que no este llegando la variable de ssesion
-if (!isset($_SESSION['id_usuario'])){
+if (!isset($_SESSION['ID_USUARIO'])){
    echo "<script>window.location='../../interfaz_externa/login.html';</script>";
 }
 ?>
@@ -57,7 +57,7 @@ if (!isset($_SESSION['id_usuario'])){
                     <h4>Perfil</h4>
                 </div>
             </a>
-            <a href="../../../controllers/salir.php">
+            <a href="../../../controllers/login/salir.php">
                 <div class="option">
                     <i class='bx bx-log-in' title="salir"></i>
                     <h4>Salir</h4>
