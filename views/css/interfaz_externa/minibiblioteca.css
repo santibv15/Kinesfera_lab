@@ -117,7 +117,7 @@ span{
     position:absolute;
     display: inline-block;
     margin-left:.5em;
-    margin-top:1em;
+    margin-top:2em;
     transition: width .1s;
 }
 .contenedor_cajas .caja h2{
@@ -148,18 +148,18 @@ span{
 }
 .contenedor_cajas .caja1.abre{
     left: 5%;
-    width: 88%;
+    width: 90%;
     z-index: 200;
 }
 .contenedor_cajas .caja2:active{
     left: 5%;
-    width: 88%;
+    width: 90%;
     z-index: 200;
 }
 
 .contenedor_cajas .caja:active img{
     width: 16em;
-    left: -2em;
+    left: -2.5em;
     position:absolute;
     
 
@@ -167,13 +167,13 @@ span{
 
 .contenedor_cajas .caja3:active{
     left: 5%;
-    width: 88%;
+    width: 90%;
     z-index: 200;
 }
 
 .contenedor_cajas .caja4:active{
     left: 5%;
-    width: 88%;
+    width: 90%;
     z-index: 200;
 }
 
