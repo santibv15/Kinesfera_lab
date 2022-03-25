@@ -98,7 +98,9 @@ header p{
     width: 40%;
     padding:10px;
     border-bottom: 2px solid white;
-    margin-left: 400px;
+    margin: 1px auto;
+    text-align: center;
+    
 }
 
 /* CONTENEDORES TEXTO */
