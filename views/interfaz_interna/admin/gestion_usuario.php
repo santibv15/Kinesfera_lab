@@ -1,9 +1,9 @@
 <?php
-// Llamar la conexión
+
 include "../../../bd/Conexion.php";
-// Iniciar trabajo con sessiones
+
 session_start();
-// verificar que no este llegando la variable de ssesion
+
 if (!isset($_SESSION['ID_USUARIO'])){
    echo "<script>window.location='../../interfaz_externa/login.html';</script>";
 }
@@ -24,22 +24,22 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
      <!--buscador-->
      	<div class="buscar">
-              <form action="../../controllers/buscar_usuario.php" method="post">
-     		<input type="search" name="buscar" placeholder="Buscar Usuario" required>
+              <form action="../../../controllers/crud_usuario/search_usuario.php" method="post">
+     		<input type="search" name="buscar_usu" placeholder="Buscar Usuario" required>
      		<input type="submit" name="btn_buscar" value="Buscar">
      	</form>
      	</div>
-        <!--codigo Buscar-->
+        
 
-    <table>
-    <thead bgcolor="gray">
-        <tr>
+    <table class="table">
+    <thead class="head_table" bgcolor="gray">
+        <tr class="title">
             <th>Usuario</th>
             <th colspan="2">Cargo</th>
             <th colspan="2">Eliminar</th>
         </tr>
 
-        <tr>
+        <tr class="title">
             <th scope="col"></th>
             <th>Formador</th>
             <th>Aprendiz</th>
@@ -55,12 +55,13 @@ if (!isset($_SESSION['ID_USUARIO'])){
     $Cargo_usu=4;
     $Estado_usu='Activo';
 
-        // Rescato todos los datos de la base de datos
+        
             while($fila = mysqli_fetch_array($consulta)){
                 if ($fila['ID_CARGO_USUARIO'] == $Cargo_usu){
                     if ($fila['ESTADO_USUARIO'] ==$Estado_usu){
             ?>
-            <tr>
+
+            <tr  class="content_table">
             <!-- Muestro todos los datos en la tabla  -->
             <td><?php echo $fila['CORREO_USUARIO']; ?><br><?php echo $fila['NOMBRES_USUARIO']; ?> <?php echo $fila['APELLIDOS_USUARIO']; ?></td>
 

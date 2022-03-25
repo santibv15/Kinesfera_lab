@@ -34,19 +34,6 @@ class Usuario extends Conexion{
         $insert->execute();
         
     }
-
-    /* public function iniciarSesion(String $correo,String $clave){
-        $this->correo_usu = $correo;
-        $this->contra_usu = $clave;
-
-        $conectar = new Conexion;
-         $conexion = $conectar->conectarBD();
-    $consulta = mysqli_prepare($conexion,"SELECT * FROM USUARIO WHERE CORREO_USUARIO=? AND CLAVE_USUARIO=?");
-    $consulta->bind_param("ss",$this->correo_usu,$this->contra_usu);
-    $consulta->execute();
-    return $num = mysqli_num_rows($consulta);
-
-    } */
     
     public function updateCargo(int $id_usuario,int $cargo_a){
         $this->id_usuario = $id_usuario;
