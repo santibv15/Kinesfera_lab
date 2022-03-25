@@ -143,29 +143,37 @@ span{
 
 .contenedor_cajas .caja:active p{
     display: inline-block;
+    position:relative;
+    margin-left: 15em;
 }
 .contenedor_cajas .caja1:active{
-    width: 41%;
+    left: 5%;
+    width: 88%;
     z-index: 200;
 }
 .contenedor_cajas .caja2:active{
-    width: 43%;
+    left: 5%;
+    width: 88%;
     z-index: 200;
 }
 
 .contenedor_cajas .caja:active img{
-    display:none;
+    width: 16em;
+    left: -2em;
+    position:absolute;
+    
+
 }
 
 .contenedor_cajas .caja3:active{
-    left: 28%;
-    width: 40%;
+    left: 5%;
+    width: 88%;
     z-index: 200;
 }
 
 .contenedor_cajas .caja4:active{
-    left: 52%;
-    width: 40%;
+    left: 5%;
+    width: 88%;
     z-index: 200;
 }
 
