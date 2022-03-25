@@ -146,7 +146,7 @@ span{
     position:relative;
     margin-left: 15em;
 }
-.contenedor_cajas .caja1:active{
+.contenedor_cajas .caja1.abre{
     left: 5%;
     width: 88%;
     z-index: 200;

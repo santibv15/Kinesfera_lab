@@ -105,10 +105,9 @@ header p{
 .cards{
     width: 900px;
     height: 400px;
-    margin-top: 130px;
+    margin: 130px auto;
     padding: 10px 10px;
-    margin-left: 250px;
-    position: absolute;
+    position: relative;
 }
 
 .cards:hover .imagen{
