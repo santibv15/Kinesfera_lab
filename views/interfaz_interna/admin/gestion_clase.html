@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/interfaz_externa/style_login.css">
+    <link rel="stylesheet" href="../../css/interfaz_interna/admin/admin.css">
 </head>
 <body>
-    <div class="formulario">
+<div class="formulario">
+    <div class="formulario1">
         <h1>Nueva Clase</h1>
         <div class="main">
         <form action="../../../controllers/crud_clase/ingresar_clase.php" method="post" enctype="multipart/form-data">
         <input type="text" name="nombre_class" placeholder="Nombre" required><br><br>
         <textarea name="descrip_class" rows="10" cols="40" placeholder="Descripcion"></textarea><br><br>
+    </div>
+    <div class="formulario2">
         <label for="jornada_class" class="input-cargo"> Jornada </label> 
                 <select name="jornada_class" id="jornada_class" class="input-jornada-options">
                     <option value="Manana">Mañana</option>
@@ -28,7 +31,7 @@
                     <option value="Mensual">Mensual</option>
                     <option value="Semestral">Semestral</option>
                 </select><br><br>
-       <label>Imagen de Portada </label><input type="file" name="imagen_class" accept="image/*" required><br><br>
+       <label class="Imagen_portada">Imagen de Portada</label><input type="file" name="imagen_class" accept="image/*" required><br><br>
        <label for="categoria_class" class="input-categoria">Categoria</label> 
                 <select name="categoria_class" id="categoria_class" class="input-categoria-options">
                     <option value="1">Artes Visuales</option>
@@ -39,6 +42,7 @@
         <input type="submit" name="btn_class" value="Publicar">
       </form>
     </div>
+</div>
 </div>
 
 </body>

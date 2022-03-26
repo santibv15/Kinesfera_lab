@@ -29,13 +29,14 @@
     transition: all 0.5s ease;
     background: black;
     margin-top: -10px;
+    border-bottom: 3px solid white;
 }
 
 .encabezado img{
     margin-left: 8%;
     display: inline;
     width: 70px;
-    margin-top: 20px;
+    margin-top: 25px;
     float: left; 
     object-fit: cover;
 }
@@ -46,7 +47,7 @@
     margin-left: 200px;
     margin-top: 30px;
     padding-right: 50px;
-    border-left: 3px solid #00AAF7;
+    border-left: 4px solid #00AAF7;
 }
 
 .encabezado nav a{
