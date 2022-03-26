@@ -137,45 +137,7 @@ span{
    
 }
 
-.contenedor_cajas .caja:active h2{
-    display: block;
-}
 
-.contenedor_cajas .caja:active p{
-    display: inline-block;
-    position:relative;
-    margin-left: 15em;
-}
-.contenedor_cajas .caja1.abre{
-    left: 5%;
-    width: 90%;
-    z-index: 200;
-}
-.contenedor_cajas .caja2:active{
-    left: 5%;
-    width: 90%;
-    z-index: 200;
-}
-
-.contenedor_cajas .caja:active img{
-    width: 16em;
-    left: -2.5em;
-    position:absolute;
-    
-
-}
-
-.contenedor_cajas .caja3:active{
-    left: 5%;
-    width: 90%;
-    z-index: 200;
-}
-
-.contenedor_cajas .caja4:active{
-    left: 5%;
-    width: 90%;
-    z-index: 200;
-}
 
 .contenedor_cajas .caja img{
     width: 92%;
@@ -186,7 +148,7 @@ span{
 }
 
 .caja1{
- left: 5%;
+ left: 4%;
 }
 
 
@@ -204,6 +166,24 @@ span{
 }
 
 
+.caja5{
+    left: 4%;
+   }
+   
+   
+   
+   .caja6{
+       left: 28%;
+   }
+   
+   .caja7{
+       left: 52%;
+   }
+   
+   .caja8{
+       left: 75%;
+   }
+   
 
 
 
@@ -212,6 +192,96 @@ span{
 
 
 
+.container_cajas{
+    position: absolute;
+    height: 25.1em;
+    width: 92%;
+    top: 14.5%;
+    left: 4%;
+    transform: translatex(-120%);
+    background: black;
+    transition: transform .4s ease-in;
+    
+}
+
+.container_cajas_abajo {
+    position: absolute;
+    height: 25.2em;
+    width: 92%;
+    top: 6.5%;
+    left: 4%;
+    transform: translatex(-120%);
+    background: black;
+    transition: transform .4s ease-in;
+}
+
+.move{
+    transform: translateX(0);
+}
+
+
+
+
+ .caja-img{
+    height: 80%;
+    top:5%;
+    left: 3%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 9000;
+    transition: transform .2s .4s;
+    background: red;
+}
+
+.titulo_libro{
+    color: white;
+    text-align: center;
+}
+
+.copy{
+    color: white;
+    position: relative;
+    border: 1px solid #FFC215;
+    margin-left: 25%;
+    width: 65%;
+    margin-top: 1%;
+    font-size: 1.2em;
+    padding: 2%;
+
+}
+
+.autor{
+    color: white;
+    font-size: 1em;
+    text-align: center;
+    margin-top: .5em;
+    
+}
+
+.boton_leer{
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #FFC215;
+    color: black;
+    padding: 5px;
+    margin:3%;
+    text-decoration:none;
+    transition: .5s all;
+}
+.boton_leer:hover{
+    color: white;
+    background-color: #FF9700;
+}
+
+.bx.bx-x{
+    position: absolute;
+    color: #fff;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
 
 
 
