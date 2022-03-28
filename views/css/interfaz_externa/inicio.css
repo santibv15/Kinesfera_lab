@@ -25,10 +25,11 @@
 .encabezado{
     position: absolute;
     width: 100%;
-    height: 100px;
+    height: 105px;
     transition: all 0.5s ease;
     background: black;
     margin-top: -10px;
+    border-bottom: 3px solid white;
 }
 
 .encabezado img{
@@ -38,6 +39,7 @@
     margin-top: 20px;
     float: left; 
     object-fit: cover;
+    
 }
 
 .encabezado nav{
@@ -46,7 +48,7 @@
     margin-left: 200px;
     margin-top: 30px;
     padding-right: 50px;
-    border-left: 3px solid #00AAF7;
+    border-left: 4px solid #00AAF7;
 }
 
 .encabezado nav a{

@@ -51,10 +51,14 @@ if (isset($_POST['btn_class'])){
 
 
     echo "<script>alert('Existosamente')</script>";
+<<<<<<< HEAD
     echo "<script>window.location='../../views/interfaz_interna/admin/gestion_clase.php';</script>";
                 }
             }
         }
+=======
+    echo "<script>window.location='../../views/interfaz_interna/formador/gestion_clase.php';</script>";
+>>>>>>> 10d2972ed7999ba0d0f42cb7f14ab4222008fb2c
     }
 }
 
