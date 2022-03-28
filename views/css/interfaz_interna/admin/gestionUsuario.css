@@ -1,0 +1,281 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+
+
+
+body{
+    margin-left: 80px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    position: absolute;
+    width: 85%;
+    overflow-x: hidden;
+   
+    
+}
+
+#icono-kinesfera{
+    width: 40px;
+    height: 40px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: -10px;
+    position: absolute;
+
+}
+
+#titulo-kinesfera{
+    position: absolute;
+    color:white;
+    margin-left: 30px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+ 
+
+
+.icon__menu{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: translate(10px);
+}
+
+.icon__menu i{
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+
+}
+
+.menu__side{
+    width: 80px;
+    height: 100%;
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 20px solid black;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*OCULTAR SCROLL*/
+
+.menu__side::-webkit-scrollbar{
+    display: none;
+}
+
+.menu__side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.name__page{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+   
+
+}
+
+.options__menu{
+    padding: 20px 30px;
+    position:absolute;
+    top: 80px;
+
+}
+
+.options__menu a{
+    color: white;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+
+}
+
+.options__menu a:hover{
+    color: #FF1865;
+}
+
+.options__menu .option{
+    padding: 20px 0px ;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option_uni{
+    margin-top: 5em;
+}
+
+.options__menu .option i{
+     width:20px;
+     margin-right: 20px;
+     cursor: pointer;
+}
+
+.options__menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+a.selected{
+    color:#FF1865;
+
+}
+
+.selected:before{
+    content: "";
+    width: 3px;
+    height: 80%;
+    background: #FF1865;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+
+}
+
+/*clases para usar en js*/
+
+.body_move{
+    margin-left: 250px;
+
+}
+
+.menu__side_move{
+    width: 250px;
+}
+
+
+@media screen and (max-width: 760px) {
+    .body_move{
+        margin-left: 0px;
+        
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+    
+}
+
+/*FIN DE MENU DEL ADMIN*/
+
+
+
+
+
+
+.title{
+     width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 2%;
+    color: #fff;
+    position: fixed;
+    background-color: #FF1865;
+    font-size: 1.3em;
+    
+ 
+
+}
+
+.content_table{
+ 
+}
+
+.buscar{
+    float: right;
+    margin-top: 7.55%;
+    width: 90%;
+    height:10% ;
+    position: fixed;
+    background-color: #fff;
+}
+.buscar .buscar_usuario{
+    margin-left: 70%;
+    margin-top: 1%;
+    border-top: none;
+    border-left: none;
+    border-right:none ;
+    padding:1%;
+    position: relative;
+    border-color: #FF1865;
+  
+}
+.buscar .buscar_usuario:focus{
+    border: blue;
+    
+}
+
+.buscar .buscar_boton{
+  
+    padding: 1%;
+    border-radius: 15%;
+    margin-top: 1%;
+    margin-left: 2%;
+    background-color: #FF1865;
+    position: absolute;
+    border: none;
+}
+
+.buscar .buscar_boton:hover{
+    cursor: pointer;
+}
+
+.table{
+    width: 60%;
+    margin:15% auto;
+}
+
+.boton_crud{
+    padding: 5%;
+    margin-left: 40%;
+    
+}
+.head_table{
+    background-color: #FF1865;
+    
+}
+.head_table .title2 th{
+    padding: 1%;
+}
+
+td{
+    padding: 1%;
+    border: 1px solid black;
+    
+}
+
+.contenedor_absoluto{
+    background-color: red;
+    width: 29em;
+}

@@ -394,12 +394,13 @@ p{
 .contenido_evento h3{
     color:#FF9700;
     text-align: center;
-    font-size: 4em;
+    font-size: 3.5em;
 }
 
 .contenido_evento p{
     margin-top: 5%;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    text-align: justify;
 }
 .contenido_evento span{
     font-size: 1em;
