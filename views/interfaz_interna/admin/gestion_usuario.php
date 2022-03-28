@@ -66,7 +66,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <h4>Perfil</h4>
                 </div>
             </a>
-            <a href="../../../controllers/login/salir.php">
+            <a href="../../../controllers/login/salir.php" onclick="return confirmSalir()">
                 <div class="option option_uni">
                     <i class='bx bx-log-in' title="salir"></i>
                     <h4>Salir</h4>

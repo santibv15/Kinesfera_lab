@@ -22,7 +22,7 @@ if (isset($_POST['btn_class'])){
 
 
     echo "<script>alert('Existosamente')</script>";
-    echo "<script>window.location='../../views/interfaz_interna/admin/gestion_clase.php';</script>";
+    echo "<script>window.location='../../views/interfaz_interna/formador/gestion_clase.php';</script>";
     }
 }
 ?>

@@ -121,7 +121,7 @@ header{
 }
 
 .options__menu a:hover{
-    color: #FF1865;
+    color: #00AAF7;
 }
 
 .options__menu .option{
@@ -132,7 +132,7 @@ header{
 }
 
 .options__menu .option_uni{
-    margin-top: 5em;
+    margin-top: 8.5em;
 }
 
 .options__menu .option i{
@@ -147,7 +147,7 @@ header{
 }
 
 a.selected{
-    color:#FF1865;
+    color:#00AAF7;
 
 }
 
@@ -155,7 +155,7 @@ a.selected{
     content: "";
     width: 3px;
     height: 80%;
-    background: #FF1865;
+    background: #00AAF7;
     position: absolute;
     top: 10%;
     left: -30px;
@@ -191,96 +191,94 @@ a.selected{
 
 
 
-
-
-
-.title{
-     width: 100%;
-    display: inline-block;
-    text-align: center;
-    padding: 2%;
-    color: #fff;
-    position: fixed;
-    background-color: #FF1865;
-    font-size: 1.3em;
-    
+label, label option{
  
+    margin: 10px;
+    padding: 5px;
 
 }
 
-
-.buscar{
-    float: right;
-    margin-top: 7.55%;
-    width: 90%;
-    height:10% ;
-    position: fixed;
-    background-color: #fff;
-}
-.buscar .buscar_usuario{
-    margin-left: 70%;
-    margin-top: 1%;
-    border-top: none;
-    border-left: none;
-    border-right:none ;
-    padding:1%;
-    position: relative;
-    border-color: #FF1865;
-  
-}
-.buscar .buscar_usuario:focus{
-    border: blue;
-    
-}
-
-.buscar .buscar_boton{
-  
-    padding: 1%;
-    border-radius: 15%;
-    margin-top: 1%;
-    margin-left: 2%;
-    background-color: #FF1865;
-    position: absolute;
-    border: none;
-}
-
-.buscar .buscar_boton:hover{
-    cursor: pointer;
-}
-
-.table{
-    width: 60%;
-    margin:15% auto;
-}
-
-.boton_crud{
-    padding: 7%;
-    margin-left: 40%;
-    border-radius: 160%;
-    border: 1px solid black;
-    height: 5px;
-    width: 7px;
-    transition: all .5s;
-}
-.boton_crud:hover{
-    cursor: pointer;
-    background-color: rgb(48, 2, 43);
-}
-  .head_table tr{
-    background-color: #FF1865;
-  
-}
-.head_table .title2 th{
-    padding: 1%;
-}
-
-td{
-    padding: 1%;
-    border: 1px solid black;
-    
-}
-
-.contenedor_absoluto{
+label .opciones{
     background-color: red;
-    width: 29em;
+}
+.formulario{
+    width: 60%;
+    background-color: #178cc2;
+    height: 60%;
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 10px 10px 10px rgb(95, 95, 95);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.caja1{
+    height: 100%;
+    background-color: #00AAF7;
+    position: relative;
+    padding: 20%;
+    
+}
+.caja1 h1{
+    text-align: center;
+}
+
+ .control, .jornada_class, .tiempo_class, .categoria_class, input {
+    padding: 5px;
+    display: inline-block;
+    width: 50%;
+    margin: 10px;
+    font-size: 1.2em;
+    
+}
+.Imagen_portada{
+    margin-left: 25%;
+    font-size: 1.2em;
+}
+
+.img-selector{
+    width: 28%;
+ 
+    }
+textarea{
+   width: 90%;
+   margin-left: 5%;
+   position: relative;
+   font-size: 1.2em;
+}
+
+
+/**/
+.input-cargo, .input-tiempo, .input-categoria{
+  
+    display: inline-block;
+    width: 20%;
+    margin-left: 5%;
+    font-size: 1.2em;
+}
+
+.caja1{
+    
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #00AAF7;
+    display: inline-block;
+    width: 100%;
+}
+/*LO QUE NADIE MODIFICABA*/
+.input-categoria-options, .input-tiempo-options, .input-jornada-options{
+    display: inline-block;
+    
+    width: 10%;
+    padding: .8%;
+    
+    
+}
+
+input{
+    margin-left: 3%;
+}
+
+.Control1{
+ margin-left: 23%;
 }

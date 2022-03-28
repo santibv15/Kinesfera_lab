@@ -41,3 +41,17 @@ function confirmFormador()
         return false;
     }
 }
+
+function confirmSalir()
+{
+    var respuesta_formador = confirm("¿Quieres Salir?");
+
+    if (respuesta_formador == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
