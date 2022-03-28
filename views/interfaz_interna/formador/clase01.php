@@ -16,8 +16,66 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/interfaz_interna/formador/clase.css">
     <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
+<body id="body">
+
+
+<header>
+        <div class="icon__menu"><i class='bx bx-menu' id="btn_open"></i></div>
+    </header>
+
+    <div class="menu__side" id="menu__side">
+
+        <div class="name__page">
+            <img src="../../img/logos/logotipo3.png" id="icono-kinesfera" alt="">
+            <h4 id="titulo-kinesfera">Kinesfera<span style="color: transparent;">_</span>Lab</h4>
+        </div>
+
+        <div class="options__menu">
+
+            <a href="" class="selected">
+                <div class="option ">
+                    <i class='bx bxs-home' title="inicio"></i>
+                    <h4>Clases</h4>
+                </div>
+            </a>
+            <a href="registrar_aprendiz.php">
+                <div class="option">
+                    <i class='bx bx-world' title="Explorar"></i>
+                    <h4>Explorar</h4>
+                </div>
+            </a>
+            <a href="" >
+                <div class="option" >
+                    <i class='bx bxs-folder-open'  title="Laboratorio Artistico"></i>
+                    <h4>Laboratorio Artistico</h4>
+                </div>
+            </a>
+            <a href="">
+                <div class="option">
+                    <i class='bx bx-user' title="perfil"></i>
+                    <h4>Perfil</h4>
+                </div>
+            </a>
+            <a href="../../../controllers/login/salir.php" onclick="return confirmSalir()">
+                <div class="option option_uni">
+                    <i class='bx bx-log-in' title="salir"></i>
+                    <h4>Salir</h4>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <main>
+        
+    </main>
+
+
+    <!--FIN DE MENU DEL ADMINISTRADOR-->
+
+<h1 class="titulo_clase">CLASES</h1>
+ <div class="nueva_clase"><a href="gestion_clase.php" > nueva clase</a></div>                   
 <div class="contenedor_principal">
 <?php
     $conectar = new Conexion;
@@ -39,7 +97,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
    <form action="../../../controllers/crud_clase/delete_clase.php" method="post">
    <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden>
-   <input type="submit" class="btn" name="btn_delete" Value="Eliminar"> 
+   <input type="submit" class="btn" name="btn_delete" Value="Eliminar" onclick="return confirmEliminar_clase()"> 
    </form>
  </label>
 </div>
@@ -93,8 +151,9 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <option value="4">Artes Musicales</option>
                 </select><br><br>
         <input type="submit" class="btn" name="btn_class" value="Publicar">
+
       </form>
-                   
+      
                    <?php
                     
                 }
@@ -105,6 +164,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
     
         ?>
    </div>
-   
+
+   <script src="../../js/interfaz_interna/menu.js"></script>
+    <script src="../../js/interfaz_interna/alertas.js"></script>  
 </body>
 </html>

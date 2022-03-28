@@ -16,15 +16,15 @@ if (isset($_POST['btn_class'])){
     $destino_class = "imagen_guardada/".$imagen_class;
     $categoria_class = $_POST['categoria_class'];
 
-    if($imagen_type!=='image/png' or $imagen_type!=='image/jpg' or $imagen_type!=='image/jpeg'){
+    /*if($imagen_type!=='image/png' or $imagen_type!=='image/jpg' or $imagen_type!=='image/jpeg'){
         echo "<script>alert('Solo se admiten archivos .jpg .jpeg o .png')</script>";
-        echo "<script>window.location='../../views/interfaz_interna/admin/gestion_clase.php';</script>";
+        echo "<script>window.location='../../views/interfaz_interna/formador/gestion_clase.php';</script>";
     }else{
 
     if($imagen_size>600000){
         echo "<script>alert('El Tamaño del archivo sobrepasa lo establecido')</script>";
         echo "<script>window.location='../../views/interfaz_interna/admin/gestion_clase.php';</script>";
-    }else{
+    }else{  */
 
 
     if (move_uploaded_file($ruta_class, $destino_class)) {
@@ -51,15 +51,14 @@ if (isset($_POST['btn_class'])){
 
 
     echo "<script>alert('Existosamente')</script>";
-<<<<<<< HEAD
-    echo "<script>window.location='../../views/interfaz_interna/admin/gestion_clase.php';</script>";
+
+    echo "<script>window.location='../../views/interfaz_interna/formador/gestion_clase.php';</script>";
+
                 }
             }
         }
-=======
-    echo "<script>window.location='../../views/interfaz_interna/formador/gestion_clase.php';</script>";
->>>>>>> 10d2972ed7999ba0d0f42cb7f14ab4222008fb2c
-    }
-}
+
+ /*   }
+} */
 
 ?>

@@ -55,3 +55,33 @@ function confirmSalir()
         return false;
     }
 }
+
+
+function confirmEliminar_clase()
+    {
+    var respuesta_eliminar = confirm("¿Quieres eliminar esta clase?");
+
+    if (respuesta_eliminar == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+function confirmsubirc()
+    {
+    var respuesta_eliminar = confirm("¿Quieres agregar esta clase?");
+
+    if (respuesta_eliminar == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

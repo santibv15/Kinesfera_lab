@@ -210,20 +210,12 @@ include "bd/Conexion.php";
                 <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> <span>.000 <?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
                 <span class="fecha">Fecha de inicio: </span> 30 Abril 2022
             </p>
-<<<<<<< HEAD
             <?php
           }
         }
 ?>
             </fieldset>
-=======
-            <div class="margen">
-                <div class="masinfoCurso"><i class="fas fa-phone-square-alt"></i>
-                    <p>Para más información de cursos llamar al 5286745</p></div></div>
-                </fieldset>
-            </div>
->>>>>>> 10d2972ed7999ba0d0f42cb7f14ab4222008fb2c
-        </div>
+
         <a href="#fivesection" class="close">X</a>
     </article>
 

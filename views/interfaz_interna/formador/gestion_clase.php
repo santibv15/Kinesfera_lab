@@ -25,7 +25,7 @@
 
         <div class="options__menu">
 
-            <a href="" class="selected">
+            <a href="clase01.php" class="selected">
                 <div class="option ">
                     <i class='bx bxs-home' title="inicio"></i>
                     <h4>Clases</h4>
@@ -113,7 +113,7 @@
                     <label class="Imagen_portada">Imagen de Portada </label><input type="file" name="imagen_class" class="img-selector" accept="image/*" required>
 
              <textarea class="Control" name="descrip_class" rows="10" cols="40" placeholder="Descripcion"></textarea>
-            <input class="Control1" type="submit" name="btn_class" value="Publicar">
+            <input class="Control1" type="submit" name="btn_class" value="Publicar" onclick="return confirmsubirc()">
             </form>
         </div>
     </div>
