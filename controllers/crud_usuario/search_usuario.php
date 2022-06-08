@@ -1,25 +1,3 @@
-<?php
-include "../../bd/conexion.php";
-
-if (isset($_POST['btn_buscar'])){
-
-    $usuarioSearch = $_POST['buscar_usu'];
-    
-    $conectar = new Conexion;
-    $conexion = $conectar->conectarBD();
-    $Search = mysqli_query($conexion,"SELECT * FROM USUARIO WHERE  NOMBRES_USUARIO  LIKE '%$usuarioSearch%' or APELLIDOS_USUARIO  LIKE '%$usuarioSearch%'");
-
-    $numero = mysqli_num_rows($Search);
-    $cargo=4;
-    // Verifico que el resultado de la consulta sea mayor a 0
-    if ($numero > 0){
-        // Rescato todos los datos de la base de datos
-        while($fila = mysqli_fetch_array($Search)){
-            if ($fila['ID_CARGO_USUARIO']!=$cargo){
-                echo "<script>alert('Al usuario $usuarioSearch ya se le asigno un cargo')</script>";
-                echo "<script>window.location='../../views/interfaz_interna/admin/gestion_usuario.php';</script>";
-            }else{
-            ?>
 
     <!-- COMIENZO HTML -->
     <html>
@@ -108,6 +86,24 @@ if (isset($_POST['btn_buscar'])){
     </thead> 
 
     <tr class="content_table">
+            <?php
+        include "../../bd/conexion.php";
+
+        if (isset($_POST['btn_buscar'])){
+
+            $usuarioSearch = $_POST['buscar_usu'];
+            
+            $conectar = new Conexion;
+            $conexion = $conectar->conectarBD();
+            $Search = mysqli_query($conexion,"SELECT * FROM BUSCAR_USUARIO WHERE  NOMBRES_USUARIO  LIKE '%$usuarioSearch%' or APELLIDOS_USUARIO  LIKE '%$usuarioSearch%'");
+
+            $numero = mysqli_num_rows($Search);
+            // Verifico que el resultado de la consulta sea mayor a 0
+            if ($numero > 0){
+                // Rescato todos los datos de la base de datos
+                while($fila = mysqli_fetch_array($Search)){
+                    
+                    ?>
             <!-- Muestro todos los datos en la tabla  -->
             <td><?php echo $fila['CORREO_USUARIO']; ?><br><?php echo $fila['NOMBRES_USUARIO']; ?> <?php echo $fila['APELLIDOS_USUARIO']; ?></td>
 
@@ -134,6 +130,21 @@ if (isset($_POST['btn_buscar'])){
                 </td>
             </tr>
 
+                            <?php      
+                                    
+                            
+                        }
+
+                    }else{
+                        echo "<script>alert('El usuario $usuarioSearch no Existe')</script>";
+                        echo "<script>window.location='../../views/interfaz_interna/admin/gestion_usuario.php';</script>";
+                    }
+                    
+                }
+
+            
+                ?> 
+
             <div><a href="../../views/interfaz_interna/admin/gestion_usuario.php" class="boton_volver">Volver</a></div>
             <!-- FIN HTML -->
             </body>
@@ -141,15 +152,3 @@ if (isset($_POST['btn_buscar'])){
             <script src="../../views/js/interfaz_interna/menu.js"></script>
             <script src="../../views/js/interfaz_interna/alertas.js"></script>
         </html>
-<?php      
-                    
-                }
-         }
-
-    }else{
-        echo "<script>alert('El usuario $usuarioSearch no Existe')</script>";
-        echo "<script>window.location='../../views/interfaz_interna/admin/gestion_usuario.php';</script>";
-    }
-    
-}
-?> 
