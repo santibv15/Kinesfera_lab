@@ -154,7 +154,7 @@ header{
 }
 
 a.selected{
-    color:#e429e4;
+    color:#B621B5;
 
 }
 
@@ -197,5 +197,25 @@ a.selected{
 /*FIN DE MENU DEL ADMIN*/
 
 .encabezado_perfil {
-    display: none;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 2%;
+    color: #fff;
+    position: fixed;
+    background-color: #FF1865;
+    font-size: 1.3em;
 }
+
+
+.title{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 2%;
+    color: #fff;
+    position: fixed;
+    background-color: #e429e4;
+    font-size: 1.3em;
+}
+

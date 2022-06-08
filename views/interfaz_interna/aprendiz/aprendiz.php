@@ -79,10 +79,10 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
 <!--FIN DE MENU DEL ADMINISTRADOR-->
 
-    <header class="encabezado_perfil">
-        <h1>header</h1> 
-
-    </header>
+    <div class="title">
+        <h1>Perfil</h1> 
+    
+</div>
     
     <script src="../../js/interfaz_interna/menu.js"></script>
     <script src="../../js/interfaz_interna/alertas.js"></script>   

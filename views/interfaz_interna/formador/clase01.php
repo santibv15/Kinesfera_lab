@@ -75,7 +75,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <!--FIN DE MENU DEL ADMINISTRADOR-->
 
 <h1 class="titulo_clase">CLASES</h1>
- <div class="nueva_clase"><a href="gestion_clase.php" > nueva clase</a></div>                   
+ <div class="nueva_clase"><a href="gestion_clase.php" >Nueva clase</a></div>                   
 <div class="contenedor_principal">
 <?php
     $conectar = new Conexion;
