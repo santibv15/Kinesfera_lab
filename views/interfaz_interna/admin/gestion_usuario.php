@@ -138,21 +138,21 @@ if (!isset($_SESSION['ID_USUARIO'])){
                  <form action="../../../controllers/crud_usuario/update_usuario.php" method="post">
                 <input type="text" name="id_usuario" value="<?php echo $fila['ID_USUARIO']; ?>" readonly hidden>
                 <input type="text" name="new_cargo" value="2" readonly hidden> 
-                <input type="submit" name="btn_update" Value=" " class="boton_crud"  onclick="return confirmFormador()"> 
+                <input type="submit" name="btn_update" Value="Asignar" class="boton_crud"  onclick="return confirmFormador()"> 
                  </form>
               </td>
                <td>
                <form action="../../../controllers/crud_usuario/update_usuario.php" method="post">
                 <input type="text" name="id_usuario" value="<?php echo $fila['ID_USUARIO']; ?>" readonly hidden>
                 <input type="text" name="new_cargo" value="3" readonly hidden> 
-                <input type="submit" name="btn_update" Value=" " class="boton_crud" onclick="return confirmAprendiz()"> 
+                <input type="submit" name="btn_update" Value="Asignar" class="boton_crud" onclick="return confirmAprendiz()"> 
                  </form>
               </td>
               <td>
               <form action="../../../controllers/crud_usuario/delete_usuario.php" method="post">
                 <input type="text" name="id_usuario" value="<?php echo $fila['ID_USUARIO']; ?>" readonly hidden>
                 <input type="text" name="estado" value="Inactivo" readonly hidden>
-                <input type="submit" name="btn_delete" Value=" " class="boton_crud" onclick="return confirmEliminar()">
+                <input type="submit" name="btn_delete" Value="Eliminar" class="boton_crud_eliminar" onclick="return confirmEliminar()">
                 </form>
                 </td>
             </tr>

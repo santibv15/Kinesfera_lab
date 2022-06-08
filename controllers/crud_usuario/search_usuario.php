@@ -7,7 +7,7 @@ if (isset($_POST['btn_buscar'])){
     
     $conectar = new Conexion;
     $conexion = $conectar->conectarBD();
-    $Search = mysqli_query($conexion,"SELECT * FROM USUARIO WHERE  CORREO_USUARIO  LIKE '%$usuarioSearch%'");
+    $Search = mysqli_query($conexion,"SELECT * FROM USUARIO WHERE  NOMBRES_USUARIO  LIKE '%$usuarioSearch%' or APELLIDOS_USUARIO  LIKE '%$usuarioSearch%'");
 
     $numero = mysqli_num_rows($Search);
     $cargo=4;

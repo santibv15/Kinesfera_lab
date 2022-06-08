@@ -12,12 +12,7 @@ if (isset($_POST['btn_ingresar'])){
 
     $conectar = new Conexion;
     $conexion = $conectar->conectarBD();
-    $registro = mysqli_query($conexion,"SELECT * FROM usuario WHERE ESTADO_USUARIO='Inactivo'");
-    /* if ($registro->num_rows > 0){
-        echo "<script>alert('Este usuario ha sido Eliminado')</script>";
-        echo "<script>window.location='../../views/interfaz_externa/login.html';</script>";
-    
-    }else{ */
+   
         $consulta = mysqli_query($conexion,"SELECT * FROM USUARIO WHERE CORREO_USUARIO='$correo' AND CLAVE_USUARIO='$clave_oculta'") or die ($conexion."Problemas en la consulta");
 
         $num = mysqli_num_rows($consulta);
@@ -37,14 +32,17 @@ if (isset($_POST['btn_ingresar'])){
             
         }
 
-        if($_SESSION['ID_CARGO_USUARIO']==1){
-            echo "<script>alert('$correo, Bienvenido a Kinesfera Lab Administrador')</script>";
+        if($_SESSION['ESTADO_USUARIO']=='Inactivo'){
+            echo "<script>alert('Este usuario ha sido Eliminado')</script>";
+            echo "<script>window.location='../../views/interfaz_externa/login.html';</script>";
+        }else if($_SESSION['ID_CARGO_USUARIO']==1){
+            echo "<script>alert('Bienvenido a Kinesfera Lab Administrador')</script>";
             echo "<script>window.location='../../views/interfaz_interna/admin/gestion_usuario.php';</script>";
         }else if($_SESSION['ID_CARGO_USUARIO']==2){
-            echo "<script>alert('$correo, Bienvenido a Kinesfera Lab Formador')</script>";
+            echo "<script>alert('Bienvenido a Kinesfera Lab Formador')</script>";
             echo "<script>window.location='../../views/interfaz_interna/formador/clase01.php';</script>";
         }else if($_SESSION['ID_CARGO_USUARIO']==3){
-            echo "<script>alert('$correo, Bienvenido a Kinesfera Lab Aprendiz')</script>";
+            echo "<script>alert('Bienvenido a Kinesfera Lab Aprendiz')</script>";
             echo "<script>window.location='../../views/interfaz_interna/aprendiz/aprendiz.php';</script>";
         }else if($_SESSION['ID_CARGO_USUARIO']==4){
             echo "<script>alert('Todavia no tienes acceso a la plataforma')</script>";
@@ -61,10 +59,9 @@ if (isset($_POST['btn_ingresar'])){
         echo "<script>window.location='../../views/interfaz_externa/login.html';</script>";
         
     }
+    
+    
 }
-    
-    
-/* } */
 
 
 ?>

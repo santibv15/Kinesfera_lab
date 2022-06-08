@@ -396,3 +396,7 @@ legend{
     color: white;
     font-size: 1.3em;
 }
+
+.contenedor_cards_mod, .contenedor_principal{
+    display: inline-block;
+}

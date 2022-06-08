@@ -3,7 +3,7 @@
     class Conexion{
         function conectarBD(){
             //variables que guardan los datos para conectar la bd
-            $server ="localhost";//CORREGIR SIEMPREE
+            $server ="localhost:3306";//CORREGIR SIEMPREE
             $usuario = "root";
             $clave = "";
             $baseDatos = "kinesfera_lab";
