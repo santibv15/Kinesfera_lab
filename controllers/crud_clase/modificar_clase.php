@@ -1,6 +1,6 @@
 <?php
 // Llamar la conexión
-include "../../../bd/Conexion.php";
+include "../../bd/Conexion.php";
 // Iniciar trabajo con sessiones
 session_start();
 // verificar que no este llegando la variable de ssesion
@@ -14,7 +14,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/interfaz_interna/formador/clase.css">
+    <link rel="stylesheet" href="../../views/css/interfaz_interna/formador/modificar_clase.css">
     <title>Document</title>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -28,7 +28,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <div class="menu__side" id="menu__side">
 
         <div class="name__page">
-            <img src="../../img/logos/logotipo3.png" id="icono-kinesfera" alt="">
+            <img src="../../views/img/logos/logotipo3.png" id="icono-kinesfera" alt="">
             <h4 id="titulo-kinesfera">Kinesfera<span style="color: transparent;">_</span>Lab</h4>
         </div>
 
@@ -70,49 +70,19 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <main>
         
     </main>
+<!--FIN MENU -->
 
 
-    <!--FIN DE MENU DEL ADMINISTRADOR-->
-
-<h1 class="titulo_clase">CLASES</h1>
- <div class="nueva_clase"><a href="gestion_clase.php" >Nueva clase</a></div>                   
-<div class="contenedor_principal">
-<?php
-    $conectar = new Conexion;
-    $conexion = $conectar->conectarBD();
-    $consulta = mysqli_query($conexion,"SELECT * FROM CLASE");
-      
-            while($fila = mysqli_fetch_array($consulta)){
-        
-            ?>
-<div class="contenedor_cards">
-    <label class = "card" for="item-1" id="selector-1">
-    <?php echo '<img class="image" src="../../../controllers/crud_clase/'.$fila["IMAGEN_CLASE"].'" alt="imagen curso">'; ?>
-    <p class="nom_clase"><?php echo $fila['NOMBRE_CLASE']; ?></p>
-
-    <form action="../../../controllers/crud_clase/modificar_clase.php" method="post">
-   <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden> 
-   <input type="submit" class="btn" name="btn_update" Value="Modificar"> 
-   </form>
-
-   <form action="../../../controllers/crud_clase/delete_clase.php" method="post">
-   <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden>
-   <input type="submit" class="btn" name="btn_delete" Value="Eliminar" onclick="return confirmEliminar_clase()"> 
-   </form>
- </label>
 </div>
-<?php
-          }
-?>
- 
-   </div>
    <div class="contenedor_cards_mod">
     <label class = "card" for="item-1" id="selector-1">
     <?php
         if (isset($_POST['btn_update'])){
             // Rescato el campo oculto del boton de modificar
             $id_clase = $_POST['id_clase'];
-            
+                
+            $conectar = new Conexion;
+            $conexion = $conectar->conectarBD();
             // Realizo la consulta para llenar el formulario de modificar
            $consulta2 = mysqli_query($conexion,"SELECT * FROM CLASE WHERE ID_CLASE = $id_clase") or die ($conexion."Problemas en la consulta");
             
@@ -123,10 +93,13 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 
                 while ($fila2 = mysqli_fetch_array($consulta2)){
             ?>
+            <div>
+           <img class="imagen_clase" src="<?php echo $fila2["IMAGEN_CLASE"]?>" alt="imagen clase" width="400px" height="600px">
+       </div>
                    <h1 class="title_modificar">Modificar</h1>
                    <form action="../../../controllers/crud_clase/update_clase.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="id_clase" value="<?php echo $fila2['ID_CLASE']; ?>" readonly hidden>
-        <input type="text" class="text" name="nombre_class" value="<?php  echo $fila2['NOMBRE_CLASE']; ?>" required><br><br>
+        <input class="campos" type="text" name="id_clase" value="<?php echo $fila2['ID_CLASE']; ?>" readonly hidden>
+        <input class="campos" type="text" class="text" name="nombre_class" value="<?php  echo $fila2['NOMBRE_CLASE']; ?>" required><br><br>
         <textarea name="descrip_class" rows="10" cols="40"><?php  echo $fila2['DESCRIPCION_CLASE']; ?></textarea><br><br>
         <label for="jornada_class" class="input-cargo"> Jornada </label> 
                 <select name="jornada_class" id="jornada_class" class="input-jornada-options">
@@ -134,8 +107,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <option value="Tarde">Tarde</option>
                     <option value="Noche">Noche</option>
                 </select><br><br>
-        <input type="text" class="text" name="horarrio_class" value="<?php  echo $fila2['HORARIOS_CLASE']; ?>" required><br><br>
-       <input type="text" class="text" name="costo_class" value="<?php  echo $fila2['COSTO_CLASE']; ?>" required><br><br>
+        <input type="text" class="campos" name="horarrio_class" value="<?php  echo $fila2['HORARIOS_CLASE']; ?>" required><br><br>
+       <input type="text" class="campos" name="costo_class" value="<?php  echo $fila2['COSTO_CLASE']; ?>" required><br><br>
        <label for="tiempo_class" class="input-tiempo">Tiempo Pago</label> 
                 <select name="tiempo_class" id="tiempo_class" class="input-tiempo-options">
                     <option value="Quincenal">Quincenal</option>
@@ -150,7 +123,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <option value="3">Artes Literarias</option>
                     <option value="4">Artes Musicales</option>
                 </select><br><br>
-        <input type="submit" class="btn" name="btn_class" value="Publicar">
+        <input type="submit" class="btn_publicar" name="btn_class" value="Publicar">
 
       </form>
       
@@ -165,7 +138,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
         ?>
    </div>
 
-   <script src="../../js/interfaz_interna/menu.js"></script>
-    <script src="../../js/interfaz_interna/alertas.js"></script>  
+   <script src="../../views/js/interfaz_interna/menu.js"></script>
+    <script src="../../views/js/interfaz_interna/alertas.js"></script>  
 </body>
 </html>

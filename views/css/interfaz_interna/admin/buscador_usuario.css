@@ -197,7 +197,7 @@ a.selected{
    display: inline-block;
    text-align: center;
    padding: 2%;
-   color: #fff;
+   color: white;
    position: fixed;
    background-color: #FF1865;
    font-size: 1.3em;
@@ -211,7 +211,8 @@ a.selected{
 }
 
 .head_table .title th{
-    padding: 1%;
+    padding: 2%;
+    color: #fff;
 }
 
 .table{
@@ -227,16 +228,27 @@ td{
 
 .boton_crud{
     padding: 7%;
-    margin-left: 40%;
-    border-radius: 160%;
-    border: 1px solid black;
-    height: 5px;
-    width: 7px;
+    margin-left: 25%;
+    border-radius: 10%;
+    border: 2px solid #3f60f7;
+    transition: all .5s;
+}
+.boton_crud_eliminar{
+    padding: 7%;
+    margin-left: 25%;
+    border-radius: 10%;
+    border: 2px solid rgb(233, 47, 44);
     transition: all .5s;
 }
 .boton_crud:hover{
     cursor: pointer;
-    background-color: rgb(48, 2, 43);
+    background-color: #3f60f7;
+    color: white;
+}
+.boton_crud_eliminar:hover{
+    cursor: pointer;
+    background-color: rgb(233, 47, 44);
+    color: white;
 }
 
 .boton_volver{
@@ -253,4 +265,11 @@ td{
 .boton_volver:hover{
     cursor: pointer;
     background-color: #c43464;
+}
+table{
+    border: 2px solid #FF1865;
+}
+
+tr, td{
+    border: none;
 }

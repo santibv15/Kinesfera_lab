@@ -187,120 +187,59 @@ a.selected{
     
 }
 
-/*FIN DE MENU DEL ADMIN*/
-
-
-
-
-
-
-.title{
-     width: 100%;
-    display: inline-block;
-    text-align: center;
-    padding: 2%;
-    color: #fff;
-    position: fixed;
-    background-color: #FF1865;
-    font-size: 1.3em;
-    
- 
-
-}
-
-
-.buscar{
-    float: right;
-    margin-top: 7.55%;
-    width: 90%;
-    height:10% ;
-    position: fixed;
-    background-color: #fff;
-}
-.buscar .buscar_usuario{
-    margin-left: 70%;
-    margin-top: 1%;
-    border-top: none;
-    border-left: none;
-    border-right:none ;
-    padding:1%;
-    position: relative;
-    border-color: #FF1865;
-  
-}
-.buscar .buscar_usuario:focus{
-    border: blue;
+.title_modificar{
+    font-size: 200%;
+    font-family: Arial;
+    margin-bottom: 2%;
+    padding-top: 2%;
     
 }
 
-.buscar .buscar_boton{
-  
-    padding: 1%;
-    border-radius: 15%;
-    margin-top: 1%;
-    margin-left: 2%;
-    background-color: #FF1865;
-    position: absolute;
-    border: none;
-    color: white;
-}
-
-.buscar .buscar_boton:hover{
-    cursor: pointer;
-}
-
-.table{
+.text{
+    height: 200%;
     width: 60%;
-    margin:17% auto;
 }
 
-.boton_crud,.boton_crud_eliminar{
-    padding: 7%;
-    margin-left: 25%;
-    border-radius: 10%;
-    border: 2px solid #3f60f7;
-    transition: all .5s;
-}
-.boton_crud_eliminar{
-    border: 2px solid rgb(233, 47, 44);
-    
-}
-
-.boton_crud:hover{
-    cursor: pointer;
-    background-color: #3f60f7;
-    color: white;
-}
-
-.boton_crud_eliminar:hover{
-    cursor: pointer;
-    background-color: rgb(233, 47, 44);
-    color: white;
-}
-.table{
-    border: 2px solid #FF1865;
-    padding: 0%;
-}
-
-.head_table tr{
-    background-color: #FF1865;
-    color: white;
-
-}
-.head_table .title2 th{
-    padding: 2%;
-}
-
-td{
+.nueva_clase{
+    position:fixed;
     padding: 1%;
+    margin-top: 38%;
+    border-radius: 5%;
+    background-color: #00AAF7;
 }
 
-.contenedor_absoluto{
-    background-color: red;
-    width: 29em;
-    border: none;
+.nueva_clase a {
+    color: white;
+    font-size: 1.3em;
 }
 
-tr, td{
+.contenedor_cards_mod, .contenedor_principal{
+    display: inline-block;
+    margin-left: 13%;
+    margin-top: 3%;
+    text-align: center;
+    padding: 0%;
+    box-shadow: 0px 0px 20px 0px black;
+    border-radius: 2%;
+    width: 80%;
+    height: 100%;
+}
+
+.imagen_clase{
+    float: left;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 2% 0% 0% 2%;
+}
+.campos{
+    width: 30%;
+    height: 20%;
+    padding: .5%;
+}
+.btn_publicar{
+    padding: 10px 140px;
+    background-color: rgb(3, 70, 205);
     border: none;
+    color:white;
+
 }

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../../views/css/interfaz_interna/admin/buscador_usuario.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     </head>
-    <body id="body" > 
+    <body id="body"> 
         
 <header>
         <div class="icon__menu"><i class='bx bx-menu' id="btn_open"></i></div>
@@ -111,21 +111,21 @@
                  <form action="update_usuario.php" method="post">
                 <input type="text" name="id_usuario" value="<?php echo $fila['ID_USUARIO']; ?>" readonly hidden>
                 <input type="text" name="new_cargo" value="2" readonly hidden> 
-                <input type="submit" name="btn_update" Value=" " class="boton_crud"  onclick="return confirmFormador()"> 
+                <input type="submit" name="btn_update" Value="Asignar" class="boton_crud"  onclick="return confirmFormador()"> 
                  </form>
               </td>
                <td>
                <form action="update_usuario.php" method="post">
                 <input type="text" name="id_usuario" value="<?php echo $fila['ID_USUARIO']; ?>" readonly hidden>
                 <input type="text" name="new_cargo" value="3" readonly hidden> 
-                <input type="submit" name="btn_update" Value=" " class="boton_crud" onclick="return confirmAprendiz()"> 
+                <input type="submit" name="btn_update" Value="Asignar" class="boton_crud" onclick="return confirmAprendiz()"> 
                  </form>
               </td>
               <td>
               <form action="delete_usuario.php" method="post" >
                 <input type="text" name="id_usuario" value="<?php echo $fila['ID_USUARIO']; ?>" readonly hidden>
                 <input type="text" name="estado" value="Inactivo" readonly hidden>
-                <input type="submit" name="btn_delete" Value=" " class="boton_crud" onclick="return confirmEliminar()">
+                <input type="submit" name="btn_delete" Value="Eliminar" class="boton_crud_eliminar" onclick="return confirmEliminar()">
                 </form>
                 </td>
             </tr>
