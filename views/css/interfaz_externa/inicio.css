@@ -59,6 +59,7 @@
     text-decoration: none;
     transition: .3s;
     height: 1em;
+    font-family: calibri;
     transition: all .3s;
     border-radius: 15px;
 }
@@ -85,13 +86,13 @@ header{
     width: 100%;
     height: 30px;
     text-align: center;
-    border-bottom: 1px solid blue;
 }
 
 
 header h1{
      color: aliceblue;
      font-size: 50px;
+     border:none;
 }
 
 
@@ -190,30 +191,34 @@ header p{
 /* TERCERA SECCION */
 #threesection{
     width: 100%;
-    height:80%;
+    height:100%;
     background-color: white;
+    position: relative;
 }
 /* TITULO SECCION CONTRASTADO */
-.header2{
+.header2{  
     width: 100%;
     height: 30px;
     text-align: center;
-    position: absolute;
-    margin-top: -9%;
-    margin-bottom:  29.5%;
-}
-.header2 h1{
-    color: black;
-    font-size: 50px;
 }
 
+
+.header2 h1{
+     color: black;
+     font-size: 50px;
+     border:none;
+}
+
+
 .header2 p{
-   color: black;
-   font-size: 18px;
-   width: 40%;
-   padding:10px;
-   border-bottom: 2px solid black;
-   margin-left: 30%;
+    color: black;
+    font-size: 18px;
+    width: 40%;
+    padding:10px;
+    border-bottom: 2px solid black;
+    margin: 1px auto;
+    text-align: center;
+    
 }
 
 .header3{
@@ -241,7 +246,6 @@ header p{
     margin-right: 10px;
     color: #00AAF7;
     font-size: 30px;
-    margin-bottom: 25px;
 }
 
 .texto2{
@@ -251,6 +255,7 @@ header p{
     color: white;
     text-align: right;
     font-size: 18px;
+
 }
 
 .cards:hover .texto2{
@@ -279,7 +284,7 @@ header p{
 /* CODIGO CURSOS */
 .caja_clase{
     width: 20%;
-    height: 66%;
+    height: 65%;
     background-color: #002a3f;
     display: inline;
     float: left;
@@ -300,7 +305,7 @@ header p{
 }
 .parrafo_artes{
     font-size: 120%;
-    margin-bottom: 15%;
+    margin-bottom: 10%;
 }
 
 .title_artes{
@@ -310,7 +315,7 @@ header p{
 }
 
 .btn{
-    padding: .5em 32%;
+    padding: 3% 15%;
     font-weight: 700;
     text-decoration: none;
     background-color: #00AAF7;
@@ -326,9 +331,11 @@ header p{
     transition: all 1s;
    }
 .cards #cards_izquierda{
+    width: 40%;
+    height: 80%;
     position: absolute;
-    margin-top: 10%;
-    background-color: gray;
+    margin-top: 15%;
+ 
 }
 
 .cards:hover #img_derecha{

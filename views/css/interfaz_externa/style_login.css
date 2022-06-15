@@ -69,6 +69,7 @@ header nav a{
     color: white;
     font-weight: 600;
     display: inline-block;
+    font-family: calibri;
     padding: 13px 20px;
     margin-right: -5px;
     text-decoration: none;
@@ -221,10 +222,7 @@ header nav a:hover{
 }
 
 span {
-    color: #777;
-    font-size:12px;
-    bottom: 68px;
-    position: absolute;
+    color: #e429e4;
 
 }
 

@@ -1,5 +1,5 @@
 <?php
-include("../../bd/conexion.php");
+include "../../bd/conexion.php";
 class Usuario extends Conexion{
     private $id_usuario;
     private $nombre_usu;
@@ -57,6 +57,14 @@ class Usuario extends Conexion{
         $insert= mysqli_prepare($conexion,"CALL ELIMINAR_USUARIO(?,?)");
         $insert->bind_param("is",$this->id_usuario,$this->estado_usu);
         $insert->execute();
+    }
+
+    public function getId(){
+        return $this->$id_usuario;
+    }
+
+    public function getNombre(){
+        return $this->$nombre_usu;
     }
     
 }

@@ -8,7 +8,8 @@ include "bd/Conexion.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inicio</title>
+    <title>KinesferaLab</title>
+    <link rel="shortcut icon" href="views/img/logos/logotipo_principal.png">
     <link rel="stylesheet" href="views/css/interfaz_externa/inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 </head>
@@ -143,7 +144,7 @@ include "bd/Conexion.php";
                 <span>Decripción </span><?php echo $fila['DESCRIPCION_CLASE']; ?><br><br>
                 <span>Jornada: </span><?php echo $fila['JORNADA_CLASE']; ?><br><br>
                 <span>Horario: </span> <?php echo $fila['HORARIOS_CLASE']; ?><br><br>
-                <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> <span>.000 <?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
+                <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> .000 <span><?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
                 <span class="fecha">Fecha de inicio: </span> 22 Junio 2022
             </p>
             <?php
@@ -175,7 +176,7 @@ include "bd/Conexion.php";
                 <span>Decripción </span><?php echo $fila['DESCRIPCION_CLASE']; ?><br><br>
                 <span>Jornada: </span><?php echo $fila['JORNADA_CLASE']; ?><br><br>
                 <span>Horario: </span> <?php echo $fila['HORARIOS_CLASE']; ?><br><br>
-                <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> <span>.000 <?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
+                <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> .000<span> <?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
                 <span class="fecha">Fecha de inicio: </span> 1 Agosto 2022
             </p>
             <?php
@@ -207,7 +208,7 @@ include "bd/Conexion.php";
                 <span>Decripción </span><?php echo $fila['DESCRIPCION_CLASE']; ?><br><br>
                 <span>Jornada: </span><?php echo $fila['JORNADA_CLASE']; ?><br><br>
                 <span>Horario: </span> <?php echo $fila['HORARIOS_CLASE']; ?><br><br>
-                <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> <span>.000 <?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
+                <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> .000<span> <?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
                 <span class="fecha">Fecha de inicio: </span> 30 Abril 2022
             </p>
             <?php
@@ -239,7 +240,7 @@ include "bd/Conexion.php";
                 <span>Decripción </span><?php echo $fila['DESCRIPCION_CLASE']; ?><br><br>
                 <span>Jornada: </span><?php echo $fila['JORNADA_CLASE']; ?><br><br>
                 <span>Horario: </span> <?php echo $fila['HORARIOS_CLASE']; ?><br><br>
-                <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> <span>.000 <?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
+                <span>Costo: </span> <?php echo $fila['COSTO_CLASE']; ?> .000 <span><?php echo $fila['TIEMPO_CLASE']; ?> </span><br><br>
                 <span class="fecha">Fecha de inicio: </span> 15 Mayo 2022
             </p>
             <?php
