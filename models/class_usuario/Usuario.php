@@ -59,13 +59,13 @@ class Usuario extends Conexion{
         $insert->execute();
     }
 
-    public function getId(){
+    /* public function getId(){
         return $this->$id_usuario;
     }
 
     public function getNombre(){
         return $this->$nombre_usu;
-    }
+    } */
     
 }
 

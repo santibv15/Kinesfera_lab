@@ -23,7 +23,6 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body id="body">
-    <!--<h1>Aprendizz <?php echo $_SESSION['NOMBRES_USUARIO'];?></h1>-->
     
 <header>
     <div class="icon__menu"><i class='bx bx-menu' id="btn_open"></i></div>
@@ -81,6 +80,13 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
     <div class="title">
         <h1>Perfil</h1> 
+
+        <div class="caja">
+        <form action="" method="POST">
+        <input type="text" name="nombre" value="<?php echo $_SESSION['NOMBRES_USUARIO'];?>">
+        <input type="text" name="nombre" value="<?php echo $_SESSION['APELLIDOS_USUARIO'];?>">
+        </form>
+        </div>
     
 </div>
     
