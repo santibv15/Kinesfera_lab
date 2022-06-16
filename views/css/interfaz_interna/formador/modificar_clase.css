@@ -121,7 +121,7 @@ header{
 }
 
 .options__menu a:hover{
-    color: #FF1865;
+    color: #00AAF7;
 }
 
 .options__menu .option{
@@ -147,7 +147,7 @@ header{
 }
 
 a.selected{
-    color:#FF1865;
+    color:#00AAF7;
 
 }
 
@@ -155,7 +155,7 @@ a.selected{
     content: "";
     width: 3px;
     height: 80%;
-    background: #FF1865;
+    background: #00AAF7;
     position: absolute;
     top: 10%;
     left: -30px;
@@ -227,8 +227,9 @@ a.selected{
 
 .imagen_clase{
     float: left;
-    -o-object-fit: cover;
-    object-fit: cover;
+    image-rendering: auto;
+    background-size: cover; 
+    image-rendering: pixelated;
     border-radius: 2% 0% 0% 2%;
 }
 .campos{
