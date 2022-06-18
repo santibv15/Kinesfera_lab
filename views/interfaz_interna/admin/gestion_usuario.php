@@ -13,7 +13,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Gestion Usuarios</title>
+	<title>KinesferaLab</title>
+    <link rel="shortcut icon" href="../../img/logos/logotipo_principal.png">
 	<link rel="stylesheet" type="text/css" href="../../css/interfaz_interna/admin/gestionUsuario.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico"/>
@@ -35,32 +36,42 @@ if (!isset($_SESSION['ID_USUARIO'])){
         </div>
 
         <div class="options__menu">
-
-            <a href="" >
+            <?php if($_SESSION['ID_CARGO_USUARIO']==1 or $_SESSION['ID_CARGO_USUARIO']==2){?>
+            <a href="../formador/clase01.php" >
                 <div class="option">
                     <i class='bx bxs-home' title="inicio"></i>
                     <h4>Clases</h4>
                 </div>
             </a>
+            <?php }else if($_SESSION['ID_CARGO_USUARIO']==3){?>
+                <a href="../formador/clase01.php" >
+                <div class="option">
+                    <i class='bx bxs-home' title="inicio"></i>
+                    <h4>Clases2</h4>
+                </div>
+            </a>
+                <?php }?>
             <a href="registrar_aprendiz.php">
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>
                 </div>
             </a>
-            <a href="" >
+            <a href="#" >
                 <div class="option" >
                     <i class='bx bxs-folder-open'  title="Laboratorio Artistico"></i>
                     <h4>Laboratorio Artistico</h4>
                 </div>
             </a>
-            <a href="" class="selected">
+            <?php if($_SESSION['ID_CARGO_USUARIO']==1){?>
+            <a href="../admin/gestion_usuario.php" class="selected">
                 <div class="option" >
                     <i class='bx bxs-group' title="Laboratorio Artistico"></i>
                     <h4>Gestión de Usuarios</h4>
                 </div>
             </a>
-            <a href="">
+            <?php } ?>
+            <a href="../aprendiz/aprendiz.php">
                 <div class="option">
                     <i class='bx bx-user' title="perfil"></i>
                     <h4>Perfil</h4>
@@ -75,12 +86,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
         </div>
 
     </div>
-    <main>
-        
-    </main>
 
-
-    <!--FIN DE MENU DEL ADMINISTRADOR-->
+    <!--FIN DE MENU-->
 
 
 
@@ -93,7 +100,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
      <!--buscador-->
      	<div class="buscar">
-              <form action="../../../controllers/crud_usuario/search_usuario.php" method="post">
+              <form action="search_usuario.php" method="post">
      		<input type="search" name="buscar_usu" placeholder="Buscar Usuario" required class="buscar_usuario">
      		<input type="submit" name="btn_buscar" value="Buscar" class="buscar_boton">
      	</form>

@@ -15,7 +15,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/interfaz_interna/formador/clase.css">
-    <title>Document</title>
+    <title>KinesferaLab</title>
+    <link rel="shortcut icon" href="../../img/logos/logotipo_principal.png">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body id="body">
@@ -33,26 +34,42 @@ if (!isset($_SESSION['ID_USUARIO'])){
         </div>
 
         <div class="options__menu">
-
-            <a href="" class="selected">
-                <div class="option ">
+            <?php if($_SESSION['ID_CARGO_USUARIO']==1 or $_SESSION['ID_CARGO_USUARIO']==2){?>
+            <a href="../formador/clase01.php" class="selected">
+                <div class="option">
                     <i class='bx bxs-home' title="inicio"></i>
                     <h4>Clases</h4>
                 </div>
             </a>
+            <?php }else if($_SESSION['ID_CARGO_USUARIO']==3){?>
+                <a href="../formador/clase01.php" class="selected">
+                <div class="option">
+                    <i class='bx bxs-home' title="inicio"></i>
+                    <h4>Clases2</h4>
+                </div>
+            </a>
+                <?php }?>
             <a href="registrar_aprendiz.php">
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>
                 </div>
             </a>
-            <a href="" >
+            <a href="#" >
                 <div class="option" >
                     <i class='bx bxs-folder-open'  title="Laboratorio Artistico"></i>
                     <h4>Laboratorio Artistico</h4>
                 </div>
             </a>
-            <a href="">
+            <?php if($_SESSION['ID_CARGO_USUARIO']==1){?>
+            <a href="../admin/gestion_usuario.php">
+                <div class="option" >
+                    <i class='bx bxs-group' title="Laboratorio Artistico"></i>
+                    <h4>Gestión de Usuarios</h4>
+                </div>
+            </a>
+            <?php } ?>
+            <a href="../aprendiz/aprendiz.php">
                 <div class="option">
                     <i class='bx bx-user' title="perfil"></i>
                     <h4>Perfil</h4>
@@ -67,12 +84,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
         </div>
 
     </div>
-    <main>
-        
-    </main>
 
-
-    <!--FIN DE MENU DEL ADMINISTRADOR-->
+    <!--FIN DE MENU-->
 
 <h1 class="titulo_clase">CLASES</h1>
  <div class="nueva_clase"><a href="gestion_clase.php" >Nueva clase</a></div>                   
@@ -90,7 +103,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <?php echo '<img class="image" src="../../../controllers/crud_clase/'.$fila["IMAGEN_CLASE"].'" alt="imagen curso">'; ?>
     <p class="nom_clase"><?php echo $fila['NOMBRE_CLASE']; ?></p>
 
-    <form action="../../../controllers/crud_clase/modificar_clase.php" method="post">
+    <form action="modificar_clase.php" method="post">
    <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden> 
    <input type="submit" class="btn" name="btn_update" Value="Modificar"> 
    </form>

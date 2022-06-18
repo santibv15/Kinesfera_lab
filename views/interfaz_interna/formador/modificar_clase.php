@@ -1,6 +1,6 @@
 <?php
 // Llamar la conexión
-include "../../bd/Conexion.php";
+include "../../../bd/Conexion.php";
 // Iniciar trabajo con sessiones
 session_start();
 // verificar que no este llegando la variable de ssesion
@@ -14,8 +14,9 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../views/css/interfaz_interna/formador/modificar_clase.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../css/interfaz_interna/formador/modificar_clase.css">
+    <title>KinesferaLab</title>
+    <link rel="shortcut icon" href="../../img/logos/logotipo_principal.png">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body id="body">
@@ -28,31 +29,47 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <div class="menu__side" id="menu__side">
 
         <div class="name__page">
-            <img src="../../views/img/logos/logotipo3.png" id="icono-kinesfera" alt="">
+            <img src="../../img/logos/logotipo3.png" id="icono-kinesfera" alt="">
             <h4 id="titulo-kinesfera">Kinesfera<span style="color: transparent;">_</span>Lab</h4>
         </div>
 
         <div class="options__menu">
-
-            <a href="" class="selected">
-                <div class="option ">
+            <?php if($_SESSION['ID_CARGO_USUARIO']==1 or $_SESSION['ID_CARGO_USUARIO']==2){?>
+            <a href="../formador/clase01.php" class="selected">
+                <div class="option">
                     <i class='bx bxs-home' title="inicio"></i>
                     <h4>Clases</h4>
                 </div>
             </a>
+            <?php }else if($_SESSION['ID_CARGO_USUARIO']==3){?>
+                <a href="../formador/clase01.php" class="selected">
+                <div class="option">
+                    <i class='bx bxs-home' title="inicio"></i>
+                    <h4>Clases2</h4>
+                </div>
+            </a>
+                <?php }?>
             <a href="registrar_aprendiz.php">
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>
                 </div>
             </a>
-            <a href="" >
+            <a href="#" >
                 <div class="option" >
                     <i class='bx bxs-folder-open'  title="Laboratorio Artistico"></i>
                     <h4>Laboratorio Artistico</h4>
                 </div>
             </a>
-            <a href="">
+            <?php if($_SESSION['ID_CARGO_USUARIO']==1){?>
+            <a href="../admin/gestion_usuario.php">
+                <div class="option" >
+                    <i class='bx bxs-group' title="Laboratorio Artistico"></i>
+                    <h4>Gestión de Usuarios</h4>
+                </div>
+            </a>
+            <?php } ?>
+            <a href="../aprendiz/aprendiz.php">
                 <div class="option">
                     <i class='bx bx-user' title="perfil"></i>
                     <h4>Perfil</h4>
@@ -67,10 +84,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
         </div>
 
     </div>
-    <main>
-        
-    </main>
-<!--FIN MENU -->
+
+    <!--FIN DE MENU-->
 
 
 </div>
@@ -94,7 +109,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 while ($fila2 = mysqli_fetch_array($consulta2)){
             ?>
             <div>
-           <img class="imagen_clase" src="<?php echo $fila2["IMAGEN_CLASE"]?>" alt="imagen clase" width="400px" height="600px">
+           <img class="imagen_clase" src="../../../controllers/crud_clase/<?php echo $fila2["IMAGEN_CLASE"]?>" alt="imagen clase" width="400px" height="600px">
        </div>
                    <h1 class="title_modificar">Modificar</h1>
                    <form action="../../../controllers/crud_clase/update_clase.php" method="post" enctype="multipart/form-data">
@@ -138,7 +153,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
         ?>
    </div>
 
-   <script src="../../views/js/interfaz_interna/menu.js"></script>
-    <script src="../../views/js/interfaz_interna/alertas.js"></script>  
+   <script src="../../js/interfaz_interna/menu.js"></script>
+    <script src="../../js/interfaz_interna/alertas.js"></script>   
 </body>
 </html>
