@@ -57,7 +57,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <h4>Explorar</h4>
                 </div>
             </a>
-            <a href="#" >
+            <a href="publicaciones.php" >
                 <div class="option" >
                     <i class='bx bxs-folder-open'  title="Laboratorio Artistico"></i>
                     <h4>Laboratorio Artistico</h4>

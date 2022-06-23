@@ -41,7 +41,6 @@ if (isset($_POST['btn_class'])){
         
         
             echo "<script>alert('Se ha Creado una clase Existosamente')</script>";
-        
             echo "<script>window.location='../../views/interfaz_interna/formador/clase01.php';</script>";
         }
     }

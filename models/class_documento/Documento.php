@@ -47,8 +47,24 @@ class Documento extends Conexion{
         $insert->execute();
     }
 
+
+    public function deleteDocumento(int $id_documento){
+        $this->id_documento = $id_documento;
+
+        $conectar = new Conexion;
+        $conexion = $conectar->conectarBD();
+
+        $insert= mysqli_prepare($conexion,"CALL DELETE_DOCUMENTO(?)");
+        $insert->bind_param("i",$this->id_documento);
+        $insert->execute();
+    }
+
     public function getTitulo(){
         return $this->titulo_documento;
+    }
+
+    public function getImagen(){
+        return $this->imagen_documento;
     }
 
 

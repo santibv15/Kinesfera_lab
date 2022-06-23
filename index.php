@@ -23,7 +23,7 @@ include "bd/Conexion.php";
                 <a href="index.php">Inicio</a>
                 <a href="views/interfaz_externa/noticias.html">Noticias</a>
                 <a href="views/interfaz_externa/eventos.html">Eventos</a>
-                <a href="views/interfaz_externa/minibiblioteca.html">Biblioteca</a>
+                <a href="views/interfaz_externa/minibiblioteca.php">Biblioteca</a>
                 <a href="views/interfaz_externa/galeria.html">Galeria</a>
                 <a href="views/interfaz_externa/login.html">Ingresar</a>
             </nav> 
