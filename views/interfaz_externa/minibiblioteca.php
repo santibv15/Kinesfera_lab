@@ -26,7 +26,7 @@ $conexion = $conectar->conectarBD();
         <h1>Kinesfera <span> Lab</span></h1>
         <nav>
             <a href="../../index.php">Inicio</a>
-            <a href="noticias.html">Noticias</a>
+            <a href="noticias.php">Noticias</a>
             <a href="eventos.html">Eventos</a>
             <a href="minibiblioteca.php">Biblioteca</a>
             <a href="galeria.html">Galeria</a>
@@ -43,20 +43,19 @@ $conexion = $conectar->conectarBD();
 
 
          <?php  
-        $consulta2 = mysqli_query($conexion,"SELECT * FROM documento_publico");
-        while($fila2 = mysqli_fetch_array($consulta2)){?>
+        $consulta = mysqli_query($conexion,"SELECT * FROM documento_publico");
+        while($fila = mysqli_fetch_array($consulta)){?>
         <div class="container_cajas container_cajas1">
         
-            <img src="../../controllers/crud_documento/<?php echo $fila2['IMAGEN_DOCUMENTO'] ?>" alt="" class="caja-img">
+            <img src="../../controllers/crud_documento/<?php echo $fila['IMAGEN_DOCUMENTO'] ?>" alt="" class="caja-img">
                
-                <h2 class="titulo_libro"><?php echo $fila2['TITULO_DOCUMENTO'] ?></h2>
-                <p class="copy"><?php echo $fila2['DESCRIPCION_DOCUMENTO'] ?></p>
+                <h2 class="titulo_libro"><?php echo $fila['TITULO_DOCUMENTO'] ?></h2>
+                <p class="copy"><?php echo $fila['DESCRIPCION_DOCUMENTO'] ?></p>
                     
                     <h4 class="autor"><span>Autoria: </span>Kinesfera Lab</h4>
-                    <a href="../../controllers/crud_documento/<?php echo $fila2['ARCHIVO_DOCUMENTO'] ?>" class="boton_leer">LEER LIBRO</a>
+                    <a href="../../controllers/crud_documento/<?php echo $fila['ARCHIVO_DOCUMENTO'] ?>" class="boton_leer">LEER LIBRO</a>
         </div>
         <?php } ?>
-        
         </div>
         <!-- <i class='bx bxs-up-arrow' title="Laboratorio Artistico"></i> -->
     

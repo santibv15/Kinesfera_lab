@@ -27,7 +27,7 @@ include ("../../models/class_documento/Documento.php");
                     $objDocumento = new Documento ($titulo_documento,$descripcion_documento,$destino_archivo,$paginas_documento,$destino_imagen,$tema_documento,$clase_documento);
                     $objDocumento->insertDocumento();
                     
-                    $consulta = mysqli_query($conexion,"SELECT * FROM DOCUMENTO_PUBLICO") or die ($conexion."Problemas en la consulta");
+                    /* $consulta = mysqli_query($conexion,"SELECT * FROM DOCUMENTO_PUBLICO") or die ($conexion."Problemas en la consulta");
                     $num = mysqli_num_rows($consulta);
         
                     if ($num != 0){
@@ -41,7 +41,7 @@ include ("../../models/class_documento/Documento.php");
                         $_SESSION['IMAGEN_DOCUMENTO'] = $fila['IMAGEN_DOCUMENTO'];
                         $_SESSION['TEMA_DOCUMENTO'] = $fila['TEMA_DOCUMENTO'];
                         $_SESSION['CLASE_DOCUMENTO'] = $fila['CLASE_DOCUMENTO'];
-                    }
+                    } */
 
                     echo "<script>alert('Publicacion Exitosa')</script>";
                     echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";

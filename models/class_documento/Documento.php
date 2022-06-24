@@ -42,7 +42,7 @@ class Documento extends Conexion{
         $conectar = new Conexion;
         $conexion = $conectar->conectarBD();
 
-        $insert= mysqli_prepare($conexion,"CALL EDITAR_DOCUMENTO(?,?,?,?,?,?,?,?);");
+        $insert= mysqli_prepare($conexion,"CALL EDITAR_DOCUMENTO(?,?,?,?,?,?,?,?)");
         $insert->bind_param("isssisii",$this->id_documento,$this->titulo_documento,$this->descripcion_documento,$this->archivo_documento,$this->paginas_documento,$this->imagen_documento,$this->tema_documento,$this->clase_documento);
         $insert->execute();
     }

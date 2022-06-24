@@ -21,7 +21,7 @@ include "bd/Conexion.php";
             <img src="views/img/logos/logotipo3.png" alt="Logo Kinesfera">
             <nav>
                 <a href="index.php">Inicio</a>
-                <a href="views/interfaz_externa/noticias.html">Noticias</a>
+                <a href="views/interfaz_externa/noticias.php">Noticias</a>
                 <a href="views/interfaz_externa/eventos.html">Eventos</a>
                 <a href="views/interfaz_externa/minibiblioteca.php">Biblioteca</a>
                 <a href="views/interfaz_externa/galeria.html">Galeria</a>

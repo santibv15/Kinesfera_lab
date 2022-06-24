@@ -1,3 +1,12 @@
+<?php
+
+include "../../models/class_documento/Documento.php";
+
+$conectar = new Conexion;
+$conexion = $conectar->conectarBD();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +28,7 @@
         <h1>Kinesfera <span> Lab</span></h1>
         <nav>
             <a href="../../index.php">Inicio</a>
-            <a href="noticias.html">Noticias</a>
+            <a href="noticias.php">Noticias</a>
             <a href="eventos.html">Eventos</a>
             <a href="minibiblioteca.php">Biblioteca</a>
             <a href="galeria.html">Galeria</a>
@@ -63,23 +72,27 @@
 
     <div class="contenedor_imagenes">
         <h2>OTRAS NOTICIAS</h2>
+
+        <?php  
+        $consulta = mysqli_query($conexion,"SELECT * FROM NOTICIA");
+        while($fila = mysqli_fetch_array($consulta)){?>
         <div class="tarjeta_eventos">
             <div class="tarjeta">
                 <div class="adelante card1">
-                    <img src="../img/interfaz_externa/noticias/noticiaglobal.jpg" alt="">
+                    <img src="../../controllers/crud_noticia/<?php echo $fila['IMAGEN_NOTICIA'] ?>" alt="">
                 </div>
                 <div class="atras">
-                    <img src="../img/interfaz_externa/noticias/noticiaglobal.jpg" alt="">
+                    <img src="../../controllers/crud_noticia/<?php echo $fila['IMAGEN_NOTICIA'] ?>" alt="">
                     <div class="contenedor_contenido">
-                         <h2 class="atras_titulo ">Museo virtual exhibe obras de artistas mexicanas</h2>
-                        <p>El Museo de Mujeres Artistas Mexicanas es un recinto virtual que contiene un archivo de las pintoras, escultoras y fotógrafas del país. De esta manera, el MUMA trata de motivar un diálogo amplio sobre el arte y el género en México.
-                        </p>
+                         <h2 class="atras_titulo "><?php echo $fila['TITULO_NOTICIA'] ?></h2>
+                        <p><?php echo $fila['DESCRIPCION_NOTICIA'] ?></p>
                   </div>
                 </div>
             </div>
         </div>
+        <?php } ?>
 
-        <div class="tarjeta_eventos">
+        <!-- <div class="tarjeta_eventos">
             <div class="tarjeta">
                 <div class="adelante card2">
                     <img src="../img/interfaz_externa/eventos/evento5.jpg" alt="">
@@ -111,7 +124,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
     <!--CONTENIDO DE LAS NOTICIAS DESTACADAS-->
 
