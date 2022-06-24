@@ -16,17 +16,10 @@ if (isset($_POST['btn_class'])){
     $destino_class = "imagen_guardada/".$imagen_class;
     $categoria_class = $_POST['categoria_class'];
 
-<<<<<<< HEAD
     if($imagen_type=='image/png' or $imagen_type=='image/jpg' or $imagen_type=='image/jpeg'){
         if (move_uploaded_file($ruta_class, $destino_class)) {
     
         $conectar = new Conexion;
-=======
-     if($imagen_type=='image/png' or $imagen_type=='image/jpg' or $imagen_type=='image/jpeg'){
-        if (move_uploaded_file($ruta_class, $destino_class)) {
-    
-            $conectar = new Conexion;
->>>>>>> 815db9b1ea16410ac83e73087a65e5be899f58ac
         $conexion = $conectar->conectarBD();
         $registro = mysqli_query($conexion,"UPDATE CLASE SET NOMBRE_CLASE='$nombre_class',DESCRIPCION_CLASE='$descrip_class', JORNADA_CLASE='$jornada_class', HORARIOS_CLASE='$horarrio_class', COSTO_CLASE=$costo_class,TIEMPO_CLASE='$tiempo_class' ,IMAGEN_CLASE='$destino_class', ID_CATEGORIA_CLASE=$categoria_class WHERE ID_CLASE= $id_clase;
         ");
@@ -34,22 +27,10 @@ if (isset($_POST['btn_class'])){
     
         echo "<script>alert('Actualizacion exitosa')</script>";
         echo "<script>window.location='../../views/interfaz_interna/formador/clase01.php';</script>";
-<<<<<<< HEAD
         }
     }else{
         echo "<script>alert('Solo se admiten archivos .jpg .jpeg o .png')</script>";
         echo "<script>window.location='../../views/interfaz_interna/formador/clase01.php';</script>";
             }
          }
-=======
-                    }
-    }else{
-        echo "<script>alert('Solo se admiten archivos .jpg .jpeg o .png')</script>";
-        echo "<script>window.location='../../views/interfaz_interna/formador/clase01.php';</script>";
-
-            }
-       
-    }
-
->>>>>>> 815db9b1ea16410ac83e73087a65e5be899f58ac
 ?>
