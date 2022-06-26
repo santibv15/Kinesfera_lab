@@ -8,7 +8,7 @@ if (isset($_POST['btn_ingresar'])){
 
     $correo = $_POST['correo'];
     $clave = $_POST['contra'];
-    $clave_oculta = md5($clave);
+    $clave_oculta = base64_encode($clave);
 
     $conectar = new Conexion;
     $conexion = $conectar->conectarBD();

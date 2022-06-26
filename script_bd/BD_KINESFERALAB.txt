@@ -1,4 +1,3 @@
-
 CREATE DATABASE KINESFERA_LAB;
 USE KINESFERA_LAB;
 CREATE TABLE CARGO
@@ -240,24 +239,25 @@ END##
 DELIMITER ;
 
 CALL INSERTS_USUARIOS
-('Corporacion','Artistica',25,663636,'KinesferaLab@gmail.com',MD5('1234'),1,'Activo');
+('Corporacion','Artistica',25,663636,'KinesferaLab@gmail.com',('MTIzNA=='),1,'Activo');
 CALL INSERTS_USUARIOS
-('Felipe','Guzman',26,464464,'Felipe@gmail.com',MD5('1234'),2,'Activo');
+('Felipe','Guzman',26,464464,'Felipe@gmail.com',('MTIzNA=='),2,'Activo');
 CALL INSERTS_USUARIOS
-('Carmen','Mazo',21,58448,'Carmen@gmail.com',MD5('1234'),2,'Activo');
+('Carmen','Mazo',21,58448,'Carmen@gmail.com',('MTIzNA=='),2,'Activo');
 CALL INSERTS_USUARIOS
-('Raul','Mejia',19,485664,'Raul@gmail.com',MD5('1234'),3,'Activo');
+('Raul','Mejia',19,485664,'Raul@gmail.com',('MTIzNA=='),3,'Activo');
 CALL INSERTS_USUARIOS
-('Juan','Gallo',18,976344,'Juan@gmail.com',MD5('1234'),3,'Activo');
+('Juan','Gallo',18,976344,'Juan@gmail.com',('MTIzNA=='),3,'Activo');
 CALL INSERTS_USUARIOS
-('Jorge','Guerra',29,093737,'Jorge@gmail.com',MD5('1234'),1,'Activo');
+('Jorge','Guerra',29,093737,'Jorge@gmail.com',('MTIzNA=='),1,'Activo');
 CALL INSERTS_USUARIOS
-('Luis','Quintana',27,423335,'Luis@gmail.com',MD5('1234'),4,'Activo');
+('Luis','Quintana',27,423335,'Luis@gmail.com',('MTIzNA=='),4,'Activo');
 CALL INSERTS_USUARIOS
-('Leandro','Prado',22,74644,'Leandro@gmail.com',MD5('1234'),4,'Activo');
-CALL INSERTS_USUARIOS ('Sara','Calle',23,35444,'Sara@gmail.com',MD5('1234'),4,'Activo');
+('Leandro','Prado',22,74644,'Leandro@gmail.com',('MTIzNA=='),4,'Activo');
+CALL INSERTS_USUARIOS 
+('Sara','Calle',23,35444,'Sara@gmail.com',('MTIzNA=='),4,'Activo');
 CALL INSERTS_USUARIOS
-('Cindy','Garzon',19,74464,'Cindy@gmail.com',MD5('1234'),4,'Activo');
+('Cindy','Garzon',19,74464,'Cindy@gmail.com',('MTIzNA=='),4,'Activo');
 
 /*insert noticia*/
 INSERT INTO NOTICIA (TITULO_NOTICIA,DESCRIPCION_NOTICIA,IMAGEN_NOTICIA,ID_USUARIO_NOTICIA) VALUES ('El Museo de Mujeres Artistas Mexicanas','El Museo de Mujeres Artistas Mexicanas es un recinto virtual que contiene un archivo de las pintoras, escultoras y fotografas del pais. De esta manera, el MUMA trata de motivar un dialogo amplio sobre el arte y el genero en Mexico.','imagenes_noticia/1.jpg',1);
@@ -288,6 +288,21 @@ CARGO_A INT)
 BEGIN
 UPDATE USUARIO SET ID_CARGO_USUARIO=CARGO_A WHERE ID_USUARIO =
 ID_USUARIO_A;
+END##
+DELIMITER ;
+
+USE KINESFERA_LAB;
+DELIMITER ##
+CREATE PROCEDURE `EDITAR_USUARIO`(
+ID_USUARIO_E INT,
+NOMBRES_USUARIO_E VARCHAR(50),
+APELLIDOS_USUARIO_E VARCHAR(80),
+EDAD_USUARIO_E INT(3),
+TELEFONO_USUARIO_E INT(21),
+CORREO_USUARIO_E VARCHAR(70),
+CLAVE_USUARIO_E VARCHAR(101))
+BEGIN
+UPDATE USUARIO SET NOMBRES_USUARIO=NOMBRES_USUARIO_E,APELLIDOS_USUARIO=APELLIDOS_USUARIO_E,EDAD_USUARIO=EDAD_USUARIO_E,TELEFONO_USUARIO=TELEFONO_USUARIO_E,CORREO_USUARIO=CORREO_USUARIO_E,CLAVE_USUARIO=CLAVE_USUARIO_E WHERE ID_USUARIO = ID_USUARIO_E;
 END##
 DELIMITER ;
 
@@ -410,3 +425,4 @@ CREATE VIEW
 BUSCAR_USUARIO AS
 SELECT * FROM USUARIO WHERE ID_CARGO_USUARIO=4;
 SELECT * FROM BUSCAR_USUARIO;
+

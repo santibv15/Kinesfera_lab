@@ -1,6 +1,5 @@
 <?php
     include ("../../models/class_usuario/Usuario.php");
-    /* class Registrar extends Usuario{ */
 
         if (isset($_POST['btn_registro'])){
             
@@ -17,7 +16,7 @@
                     $cargo = $_POST['cargo'];
                     $estado = $_POST['estado'];
                             
-                    $clave_oculta = md5($pass);
+                    $clave_oculta = base64_encode($pass);
 
                     $conectar = new Conexion;
                     $conexion = $conectar->conectarBD();

@@ -47,6 +47,23 @@ class Usuario extends Conexion{
         $insert->execute();
     }
 
+    public function updatePerfil(int $id_usuario,String $nombre_usu,String $apellido_usu,int $edad_usu,int $tel_usu,String $correo_usu,String $contra_usu){
+        $this->id_usuario = $id_usuario;
+        $this->nombre_usu = $nombre_usu;
+        $this->apellido_usu = $apellido_usu;
+        $this->edad_usu = $edad_usu;
+        $this->tel_usu = $tel_usu;
+        $this->correo_usu = $correo_usu;
+        $this->contra_usu = $contra_usu;
+
+        $conectar = new Conexion;
+        $conexion = $conectar->conectarBD();
+
+        $insert= mysqli_prepare($conexion,"CALL EDITAR_USUARIO(?,?,?,?,?,?,?)");
+        $insert->bind_param("issiiss",$this->id_usuario,$this->nombre_usu,$this->apellido_usu,$this->edad_usu,$this->tel_usu,$this->correo_usu,$this->contra_usu);
+        $insert->execute();
+    }
+
     public function deleteUsuario(int $id_usuario,String $estado){
         $this->id_usuario = $id_usuario;
         $this->estado_usu = $estado;
@@ -59,13 +76,6 @@ class Usuario extends Conexion{
         $insert->execute();
     }
 
-    /* public function getId(){
-        return $this->$id_usuario;
-    }
-
-    public function getNombre(){
-        return $this->$nombre_usu;
-    } */
     
 }
 

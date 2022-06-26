@@ -40,7 +40,7 @@ while($datos = mysqli_fetch_array($consulta_imagen)){
         <input type="text" name="titulo_imagen" placeholder="Titulo" required>
         <textarea class="Control" name="descripcion_imagen" rows="10" cols="40" placeholder="Descripcion"></textarea>
         <label>Imagen </label><input type="file" name="archivo_imagen" accept="image/*" required>
-        <input type="number" name="tipo_imagen" value="<?php echo $tipo?>">
+        <input type="number" name="tipo_imagen" value="<?php echo $tipo?>" hidden>
         <label for="clase_imagen" class="input-cargo">Clase: </label> 
                 <select name="clase_imagen" id="clase_imagen" class="input-cargo-options">
                     <?php while($datos = mysqli_fetch_array($consulta_clase)){ ?>

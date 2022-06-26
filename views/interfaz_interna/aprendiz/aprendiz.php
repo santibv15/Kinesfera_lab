@@ -8,6 +8,10 @@ session_start();
 if (!isset($_SESSION['ID_USUARIO'])){
    echo "<script>window.location='../../interfaz_externa/login.html';</script>";
 }
+
+$id_usuario = $_SESSION['ID_USUARIO'];
+$conectar = new Conexion;
+$conexion = $conectar->conectarBD();
 ?>
 -->
 
@@ -92,36 +96,40 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
     <div class="title">
         <h1>Perfil</h1> 
-
+        <?php  
+        $consulta = mysqli_query($conexion,"SELECT * FROM USUARIO WHERE ID_USUARIO=$id_usuario");
+        while($fila = mysqli_fetch_array($consulta)){?>
         <div class="caja">
-        <form action="" method="POST">
+        <form action="../../../controllers/crud_usuario/editar_usuario.php" method="POST">
         <div class="campos">
             <i class='bx bxs-user'></i>
-            <input type="text" name="nombre" value="<?php echo $_SESSION['NOMBRES_USUARIO'];?>">
+            <input type="text" name="nombre" value="<?php echo $fila['NOMBRES_USUARIO'];?>" required>
         </div>
         <div class="campos">
             <i class='bx bx-last-page' ></i>
-            <input type="text" name="apellido" value="<?php echo $_SESSION['APELLIDOS_USUARIO'];?>">
+            <input type="text" name="apellido" value="<?php echo $fila['APELLIDOS_USUARIO'];?>" required>
         </div>
         <div class="campos">
            <i class='bx bxs-hourglass'></i>
-            <input type="text" name="edad" value="<?php echo $_SESSION['EDAD_USUARIO'];?>">
+            <input type="text" name="edad" value="<?php echo $fila['EDAD_USUARIO'];?>" required>
         </div>
         <div class="campos">
             <i class='bx bxs-phone-call'></i>
-            <input type="text" name="telefono" value="<?php echo $_SESSION['TELEFONO_USUARIO'];?>">
+            <input type="text" name="telefono" value="<?php echo $fila['TELEFONO_USUARIO'];?>" required>
         </div>
         <div class="campos">
            <i class='bx bx-envelope-open'></i>
-            <input type="text" name="correo" value="<?php echo $_SESSION['CORREO_USUARIO'];?>">
+            <input type="text" name="correo" value="<?php echo $fila['CORREO_USUARIO'];?>" required>
         </div>
         <div class="campos">
              <i class='bx bxs-key'></i>
-            <input type="text" name="clave" value="<?php echo $_SESSION['CLAVE_USUARIO'];?>">
+            <input type="text" name="clave" value="<?php echo base64_decode($fila['CLAVE_USUARIO']);?>" required>
+            <input type="text" name="id" value="<?php echo $fila['ID_USUARIO'];?>" hidden>
         </div>
-        <input type="submit" value="Actualizar informacion" class="boton_perfil">
+        <input type="submit" name="btn_form" value="Actualizar informacion" class="boton_perfil">
         </form>
         </div>
+        <?php } ?>
     
 </div>
     
