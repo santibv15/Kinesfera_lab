@@ -127,6 +127,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <a href= "biblioteca/crear_biblioteca.php" class="boton_ventanas boton4">Nuevo</a> 
                     <a href= "biblioteca/crear_biblioteca.php" class="boton_ventanas boton4">ver opciones</a> 
                     </div>
+
+                    
                     
                 </div>
             </div>

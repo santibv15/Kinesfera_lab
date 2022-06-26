@@ -95,8 +95,31 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
         <div class="caja">
         <form action="" method="POST">
-        <input type="text" name="nombre" value="<?php echo $_SESSION['NOMBRES_USUARIO'];?>">
-        <input type="text" name="nombre" value="<?php echo $_SESSION['APELLIDOS_USUARIO'];?>">
+        <div class="campos">
+            <i class='bx bxs-user'></i>
+            <input type="text" name="nombre" value="<?php echo $_SESSION['NOMBRES_USUARIO'];?>">
+        </div>
+        <div class="campos">
+            <i class='bx bx-last-page' ></i>
+            <input type="text" name="apellido" value="<?php echo $_SESSION['APELLIDOS_USUARIO'];?>">
+        </div>
+        <div class="campos">
+           <i class='bx bxs-hourglass'></i>
+            <input type="text" name="edad" value="<?php echo $_SESSION['EDAD_USUARIO'];?>">
+        </div>
+        <div class="campos">
+            <i class='bx bxs-phone-call'></i>
+            <input type="text" name="telefono" value="<?php echo $_SESSION['TELEFONO_USUARIO'];?>">
+        </div>
+        <div class="campos">
+           <i class='bx bx-envelope-open'></i>
+            <input type="text" name="correo" value="<?php echo $_SESSION['CORREO_USUARIO'];?>">
+        </div>
+        <div class="campos">
+             <i class='bx bxs-key'></i>
+            <input type="text" name="clave" value="<?php echo $_SESSION['CLAVE_USUARIO'];?>">
+        </div>
+        <input type="submit" value="Actualizar informacion" class="boton_perfil">
         </form>
         </div>
     

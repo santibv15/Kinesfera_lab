@@ -219,3 +219,57 @@ a.selected{
     font-size: 1.3em;
 }
 
+
+.caja{
+
+    height: 25em;
+    width: 90%;
+    position: absolute;
+    margin-top:3%;
+    box-shadow: 0 0 20px 9px #ff61241f;
+   
+}
+
+.caja .campos{
+    width: 45%;
+    padding-bottom: 2%;
+    margin-top: 5%;
+    margin-left: 2%;
+    display: inline-block;
+    padding: 1%;
+
+}
+
+.caja .campos input{
+    width: 92%;
+    height: 3em;
+    margin-top: 0;
+    margin-left: 3em;
+    font-size: 18px;
+    padding-left: 4%;
+}
+
+.caja .campos i{
+    
+ 
+    margin-left: -.2em;
+    font-size: 2.8em;
+    color: #e429e4;
+    position: absolute;
+ 
+}
+
+.caja .boton_perfil{
+    background-color: #e429e4;
+    padding: 1%;
+    float: right;
+    margin:3%;
+    border:none;
+    color: white;
+}
+
+.caja .boton_perfil:hover{
+    cursor: pointer;
+    background-color:#f262f2;
+    transition: all .5s;
+}
