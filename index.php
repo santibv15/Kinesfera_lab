@@ -24,7 +24,7 @@ include "bd/Conexion.php";
                 <a href="views/interfaz_externa/noticias.php">Noticias</a>
                 <a href="views/interfaz_externa/eventos.html">Eventos</a>
                 <a href="views/interfaz_externa/minibiblioteca.php">Biblioteca</a>
-                <a href="views/interfaz_externa/galeria.html">Galeria</a>
+                <a href="views/interfaz_externa/galeria.php">Galeria</a>
                 <a href="views/interfaz_externa/login.html">Ingresar</a>
             </nav> 
         </header>

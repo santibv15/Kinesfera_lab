@@ -1,0 +1,412 @@
+
+CREATE DATABASE KINESFERA_LAB;
+USE KINESFERA_LAB;
+CREATE TABLE CARGO
+(ID_CARGO INT AUTO_INCREMENT PRIMARY KEY,
+ROL VARCHAR(25) NOT NULL);
+
+CREATE TABLE USUARIO
+(ID_USUARIO INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRES_USUARIO VARCHAR(50) NOT NULL,
+APELLIDOS_USUARIO VARCHAR(80) NOT NULL,
+EDAD_USUARIO INT(3) NOT NULL,
+TELEFONO_USUARIO INT(21) NOT NULL,
+CORREO_USUARIO VARCHAR(70) NULL,
+CLAVE_USUARIO VARCHAR(101) NOT NULL,
+ID_CARGO_USUARIO INT NOT NULL,
+ESTADO_USUARIO VARCHAR(20) NOT NULL,
+FOREIGN KEY (ID_CARGO_USUARIO) REFERENCES CARGO(ID_CARGO));
+
+CREATE TABLE NACIONALIDAD
+(ID_NACIONALIDAD INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRE_NACIONALIDAD VARCHAR(150)NOT NULL);
+CREATE TABLE TEMA
+(ID_TEMA INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRE_TEMA VARCHAR(60) NOT NULL,
+DESCRIPCION_TEMA VARCHAR(200) NOT NULL);
+
+CREATE TABLE AUTOR
+(ID_AUTOR INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRE_AUTOR VARCHAR(70) NOT NULL,
+APELLIDO_AUTOR VARCHAR(80) NOT NULL,
+EDAD_AUTOR INT(3) NULL,
+DESCRIPCION_AUTOR VARCHAR(150) NULL,
+NACIONALIDAD_AUTOR INT NOT NULL,
+FOTO_AUTOR VARCHAR(6000) NULL,
+FOREIGN KEY (NACIONALIDAD_AUTOR) REFERENCES
+NACIONALIDAD(ID_NACIONALIDAD));
+
+
+CREATE TABLE CATEGORIA
+(ID_CATEGORIA INT AUTO_INCREMENT PRIMARY KEY,
+TIPO_CURSO VARCHAR(50)NOT NULL,
+DESCRIPCION_CATEGORIA VARCHAR(300)NOT NULL);
+
+CREATE TABLE CLASE
+(ID_CLASE INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRE_CLASE VARCHAR(80) NOT NULL,
+DESCRIPCION_CLASE VARCHAR(350)NOT NULL,
+JORNADA_CLASE VARCHAR(30) NOT NULL,
+HORARIOS_CLASE VARCHAR(50)NOT NULL,
+COSTO_CLASE DECIMAL NOT NULL,
+TIEMPO_CLASE VARCHAR(50),
+IMAGEN_CLASE VARCHAR(1000)NOT NULL,
+ID_CATEGORIA_CLASE INT NOT NULL,
+FOREIGN KEY (ID_CATEGORIA_CLASE) REFERENCES CATEGORIA(ID_CATEGORIA));
+
+CREATE TABLE DOCUMENTO_PUBLICO
+(ID_DOCUMENTO INT AUTO_INCREMENT PRIMARY KEY,
+TITULO_DOCUMENTO VARCHAR(70)NOT NULL,
+DESCRIPCION_DOCUMENTO VARCHAR(1500)NOT NULL,
+ARCHIVO_DOCUMENTO VARCHAR(6000) NOT NULL,
+PAGINAS_DOCUMENTO INT(11) NULL,
+IMAGEN_DOCUMENTO VARCHAR(6000) NOT NULL,
+TEMA_DOCUMENTO INT NOT NULL,
+CLASE_DOCUMENTO INT NOT NULL,
+FOREIGN KEY (CLASE_DOCUMENTO) REFERENCES CLASE(ID_CLASE),
+FOREIGN KEY (TEMA_DOCUMENTO) REFERENCES TEMA(ID_TEMA));
+
+CREATE TABLE AUTOR_DOCUMENTO
+(AUTOR_ID INT NOT NULL,
+DOCUMENTO_ID INT NOT NULL,
+FECHA_CREACION DATE,
+FOREIGN KEY(AUTOR_ID) REFERENCES AUTOR(ID_AUTOR),
+FOREIGN KEY(DOCUMENTO_ID) REFERENCES
+DOCUMENTO_PUBLICO(ID_DOCUMENTO));
+
+CREATE TABLE REQUERIMIENTO
+(ID_REQUERIMIENTO INT AUTO_INCREMENT PRIMARY KEY,
+DESCRIPCION_REQUE VARCHAR(70) NOT NULL);
+
+CREATE TABLE EVENTO
+(ID_EVENTO INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRE_EVENTO VARCHAR(80)NOT NULL,
+DESCRIPCION_EVENTO VARCHAR(400) NOT NULL,
+DIRECCION_EVENTO VARCHAR(150) NOT NULL,
+HORA_EVENTO TIME NOT NULL,
+FECHA_EVENTO DATE NOT NULL,
+COSTO_EVENTO DECIMAL NOT NULL,
+IMAGEN_EVENTO VARCHAR(1000) NOT NULL,
+ID_USUARIO_EVENTO INT NOT NULL,
+FOREIGN KEY (ID_USUARIO_EVENTO) REFERENCES USUARIO(ID_USUARIO));
+
+CREATE TABLE REQUERIMIENTO_EVENTO
+(REQUERIMENTO_ID INT NOT NULL,
+EVENTO_ID INT NOT NULL,
+FOREIGN KEY(REQUERIMENTO_ID) REFERENCES
+REQUERIMIENTO(ID_REQUERIMIENTO),
+FOREIGN KEY(EVENTO_ID) REFERENCES EVENTO(ID_EVENTO));
+
+CREATE TABLE REPOSITORIO
+(ID_REPOSITORIO INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRE_REPOSITORIO VARCHAR(80)NOT NULL);
+
+CREATE TABLE IMAGENES
+(ID_IMAGEN  INT AUTO_INCREMENT PRIMARY KEY,
+TITULO_IMAGEN VARCHAR(80) NOT NULL,
+DESCRIPCION_IMAGEN VARCHAR(300),
+ARCHIVO_IMAGEN VARCHAR(1000) NOT NULL,
+TIPO_IMAGEN INT NOT NULL,
+ID_CLASE_IMAGEN INT NOT NULL,
+ID_REPOSITORIO_IMAGEN INT NOT NULL,
+ID_USUARIO_IMAGEN INT NOT NULL,
+FOREIGN KEY(ID_CLASE_IMAGEN ) REFERENCES CLASE(ID_CLASE),
+FOREIGN KEY(ID_REPOSITORIO_IMAGEN) REFERENCES
+REPOSITORIO(ID_REPOSITORIO),
+FOREIGN KEY(ID_USUARIO_IMAGEN) REFERENCES USUARIO(ID_USUARIO));
+
+CREATE TABLE NOTICIA
+(ID_NOTICIA INT AUTO_INCREMENT PRIMARY KEY,
+TITULO_NOTICIA VARCHAR(80)NOT NULL,
+DESCRIPCION_NOTICIA VARCHAR(300) NOT NULL,
+IMAGEN_NOTICIA VARCHAR(1000) NOT NULL,
+ID_USUARIO_NOTICIA INT NOT NULL,
+FOREIGN KEY(ID_USUARIO_NOTICIA) REFERENCES USUARIO(ID_USUARIO));
+
+CREATE TABLE PUBLICACION
+(ID_PUBLICACION INT AUTO_INCREMENT PRIMARY KEY,
+TITULO_PUBLIC VARCHAR(80)NOT NULL,
+DESCRIPCION_PUBLIC VARCHAR(200) NOT NULL,
+ARCHIVO_PUBLIC VARCHAR(1000) NOT NULL,
+FECHA_PUBLIC DATE NOT NULL,
+HORA_PUBLIC TIME NOT NULL,
+ID_USUARIO_PUBLIC INT NOT NULL,
+FOREIGN KEY(ID_USUARIO_PUBLIC) REFERENCES USUARIO(ID_USUARIO));
+
+CREATE TABLE USUARIO_CLASE
+(USUARIO_ID INT NOT NULL,
+CLASE_ID INT NOT NULL,
+FOREIGN KEY(USUARIO_ID ) REFERENCES USUARIO(ID_USUARIO),
+FOREIGN KEY(CLASE_ID ) REFERENCES CLASE(ID_CLASE));
+
+
+/*INSERTS*/
+INSERT INTO CARGO(ROL) VALUES ("Administrador");
+INSERT INTO CARGO(ROL) VALUES ("Formador");
+INSERT INTO CARGO(ROL) VALUES ("Aprendiz");
+INSERT INTO CARGO(ROL) VALUES ("Usuario");
+
+INSERT INTO CATEGORIA(TIPO_CURSO,DESCRIPCION_CATEGORIA ) VALUES('Artes Visuales','El artista visual se caracteriza por ser inter-multidisciplinario, por lo que tiende a
+moverse entre diferentes disciplinas para sus propositos esteticos, involucrando un horizonte
+de investigacion.');
+INSERT INTO CATEGORIA(TIPO_CURSO,DESCRIPCION_CATEGORIA ) VALUES('Artes Escenicas','Son todas aquellas muestras artisticas de exhibicion masiva como el cine, el teatro,
+la danza, el performance ya que estas te llevan tomar cada moviento, cada cambio como algo
+preciso.');
+INSERT INTO CATEGORIA(TIPO_CURSO,DESCRIPCION_CATEGORIA ) VALUES('Artes Literarias','Escribir es algo que no se debe tomar a la ligera Pero los fundamentos y tecnicas
+necesarias para poder desempenar este gran arte es algo q no se pueden dejar desapersivida
+por que aqui te las ensenan.');
+INSERT INTO CATEGORIA(TIPO_CURSO,DESCRIPCION_CATEGORIA ) VALUES('Artes Musicales','La musica es fundamental y poder comprenderla es
+importante para aquellos amantes. Aqui te mostraremos las diferentes tecnicas que existen y la
+mejor manera de ponerlas en practica.');
+
+INSERT INTO CLASE(NOMBRE_CLASE,DESCRIPCION_CLASE,JORNADA_CLASE,HORARIOS_CLASE,COSTO_CLASE,TIEMPO_CLASE,IMAGEN_CLASE,ID_CATEGORIA_CLASE) VALUES
+('Cinematografia','Se explicaran los principios basicos del cine, su historia, y la manera en la
+que el mundo actual
+esta divisando nuevas fronteras para este tipo de arte llevando en la practica por medio de
+diferentes
+tecnicas y metodologias importantes para su desarrollo.','Manana','7am -
+12pm',70.000,'Mensual','imagen_guardada/1.jpg',1);
+INSERT INTO CLASE (NOMBRE_CLASE,DESCRIPCION_CLASE,JORNADA_CLASE,HORARIOS_CLASE,COSTO_CLASE,TIEMPO_CLASE,IMAGEN_CLASE,ID_CATEGORIA_CLASE) VALUES ('Acrobacia
+Aerea','La danza aerea, tambien conocida como gimnasia aerea o acrobacia en tela es una
+disciplina que surge de un proceso de
+fusion y evolucion de varias otras disciplinas deportivas y artisticas. Se trata de una
+combinacion
+de ballet, teatro, acrobacias y artes circenses.','Tarde','12pm -
+4pm',150.000,'Semestral','imagen_guardada/2.jpg',2);
+
+INSERT INTO CLASE (NOMBRE_CLASE,DESCRIPCION_CLASE,JORNADA_CLASE,HORARIOS_CLASE,COSTO_CLASE,TIEMPO_CLASE,IMAGEN_CLASE,ID_CATEGORIA_CLASE) VALUES ('Poesia','La
+poesia enriquece nuestra capacidad de uso
+del lenguaje. Ya que es un genero de discurso libre, en cuanto al uso del lenguaje, y muy
+distinto al de nuestra vida cotidiana
+. Gracias a la lectura podemos enriquecer nuestro vocabulario y relacionarnos con un uso del
+lenguaje mas culto.','Tarde','12pm - 4pm',50.000,'Mensual','imagen_guardada/3.jpg',3);
+INSERT INTO CLASE(NOMBRE_CLASE,DESCRIPCION_CLASE,JORNADA_CLASE,HORARIOS_CLASE,COSTO_CLASE,TIEMPO_CLASE,IMAGEN_CLASE,ID_CATEGORIA_CLASE) VALUES
+('Canto','Perfeccionar la tecnica del musico con su instrumento y darle el conocimiento y el
+criterio para trabajar con productores
+musicales en cualquier ambiente laboral. Ademas, que tenga la capacidad de crear la musica
+que lo Identifica y trabajar con su creatividad en la creacion de obras para los diferentes
+campos de la industria musical.','Noche','7pm -
+10pm',50.000,'Mensual','imagen_guardada/4.jpg',4);
+
+INSERT INTO TEMA (NOMBRE_TEMA,DESCRIPCION_TEMA) VALUES ('Historia','Describe la Evolucion del arte atraves del tiempo');
+INSERT INTO TEMA (NOMBRE_TEMA,DESCRIPCION_TEMA) VALUES ('Metodologica','Describe las diferentes tecnicas importantes para el un buen desempeño en este ambito');
+INSERT INTO TEMA (NOMBRE_TEMA,DESCRIPCION_TEMA) VALUES ('Tendencias','Muestra los distintos ambitos artisticos que se encuentran en auge en estos momentos');
+INSERT INTO TEMA (NOMBRE_TEMA,DESCRIPCION_TEMA) VALUES ('Teoria','Permite adquirir conocimientos contemplados en el mundo artistico');
+INSERT INTO TEMA (NOMBRE_TEMA,DESCRIPCION_TEMA) VALUES ('Otros Artista','Desmuestra el crecimiento artisto de otros ejemplares en su contexto');
+INSERT INTO TEMA (NOMBRE_TEMA,DESCRIPCION_TEMA) VALUES ('Manualidades','Pone en practica las diversas habilidades plasticas');
+INSERT INTO TEMA (NOMBRE_TEMA,DESCRIPCION_TEMA) VALUES ('Arte Espeficico','Se centra en un arte particular');
+
+
+INSERT INTO DOCUMENTO_PUBLICO (TITULO_DOCUMENTO,DESCRIPCION_DOCUMENTO,ARCHIVO_DOCUMENTO,PAGINAS_DOCUMENTO,IMAGEN_DOCUMENTO,TEMA_DOCUMENTO,CLASE_DOCUMENTO) VALUES ('El camino del artista','El arte es una transaccion espiritual. Los artistas son visionarios. Nuestra practica habitual se basa en la fe: vemos con claridad un objetivo  creativo que resplandece en la distancia y nos movemos hacia el a pesar de que, por visible que sea para nosotros, quienes estan a nuestro alrededor no lo ven. Aunque sea dificil recordarlo, es nuestro trabajo lo que crea el mercado, no el mercado lo que crea nuestro trabajo. El arte es un acto de fe y el modo de practicarlo es haciendo arte. A veces nos obliga a hacer peregrinajes y, como muchos peregrinos, dudamos de haber sentido la llamada al tiempo que respondemos a ella.','archivos_docs/1.pdf',150,'imagenes_docs/1.jpg',2,1);
+INSERT INTO DOCUMENTO_PUBLICO (TITULO_DOCUMENTO,DESCRIPCION_DOCUMENTO,ARCHIVO_DOCUMENTO,PAGINAS_DOCUMENTO,IMAGEN_DOCUMENTO,TEMA_DOCUMENTO,CLASE_DOCUMENTO) VALUES ('Historia del arte','El mas antiguo pueblo de la historia que hasta hoy se atribuye es el Egipto. Situado al Norte de Africa, entre el mar Mediterraneo, la Arabia, 
+el mar Rojo, la Etiopia y el desierto libico, forma aun uno de los territorios mas nombrados, con historia legendaria y discutida. Su espiritu general
+ queda acaso oscurecido en algun modo por el caracter enigmatico y misterioso que de los griegos a nosotros se le ha ingerido, con mil mudanzas, 
+en su vida y en sus obras. Aquel coloso momificado, reservado e imponente como una esfinge, no tiene ya razon de ser sino en leyendas seudo 
+ egipcias. En su vida y en sus obras fue un gigante de otro orden, lleno de fuerza y actividad, que con actos y caracteres siempre humanos, tuvo 
+cambios esenciales en su existencia y mudanzas en su espiritu y en su historia, como otros pueblos..','archivos_docs/2.pdf',120,'imagenes_docs/2.jpg',5,2);
+INSERT INTO DOCUMENTO_PUBLICO (TITULO_DOCUMENTO,DESCRIPCION_DOCUMENTO,ARCHIVO_DOCUMENTO,PAGINAS_DOCUMENTO,IMAGEN_DOCUMENTO,TEMA_DOCUMENTO,CLASE_DOCUMENTO) VALUES ('Danza clasica y moderna','De entre todas las artes escenicas que con mayor o menor exito se han desarrollado en Chile, la danza (y el ballet, considerando este 
+como su expresion mas tecnica y sistematizada) es sin duda la manifestacion artistica mas postergada en cuanto a contar con registros historicos 
+y estudios completos respecto a su historia y desarrollo en nuestro pais. Si bien existen algunos textos, como los escritos por la periodista Yolanda 
+Montecinos, no es menos cierto que toda o casi toda la bibliografia actual se refiere a la formacion del Ballet Nacional Chileno (Banch) particularmente
+ a su epoca de oro bajo la direccion de Ernst Uthoff , y a la historia del Ballet de Santiago. ..','archivos_docs/3.pdf',150,'imagenes_docs/3.jpeg',6,1);
+INSERT INTO DOCUMENTO_PUBLICO (TITULO_DOCUMENTO,DESCRIPCION_DOCUMENTO,ARCHIVO_DOCUMENTO,PAGINAS_DOCUMENTO,IMAGEN_DOCUMENTO,TEMA_DOCUMENTO,CLASE_DOCUMENTO) VALUES ('El libro de la salsa','.La cancion de amor, y el bolero caribe muy en particular, exigen muchos libros carentes de prejuicios intelectuales, aparentemente cultos o
+ pretenciosamente lanzados en nombre de la cultura. Por el momento, solo nos interesa destacar la indeclinable persistencia de cierto canto amoroso, 
+de uno, quiza mas autentico, que sobrevive frente a otro, tal vez mas tramposo o ficticio. Una misma linea, considerablemente solida, se extiende desde 
+estos boleros contemporaneos de Curet Alonso, hasta llegar a las primeras manifestaciones del canto amoroso urbano gestadas a comienzos del siglo xx 
+en nuestro continente.','archivos_docs/4.pdf',150,'imagenes_docs/4.jpeg',2,1);
+
+
+INSERT INTO REPOSITORIO (NOMBRE_REPOSITORIO) VALUES ('Galeria');
+
+
+/*PROCEDIMIENTOS ALMACENADOS*/
+/*USUARIO*/
+USE KINESFERA_LAB;
+DELIMITER ##
+CREATE PROCEDURE INSERTS_USUARIOS (
+NOMBRES_I VARCHAR(89),
+APELLIDOS_I VARCHAR(100),
+EDAD_I INT ,
+TELEFONO_I INT,
+CORREO_I VARCHAR(70),
+CLAVE_I VARCHAR(101),
+CARGO_I INT,
+ESTADO_I VARCHAR(15))
+BEGIN
+INSERT INTO USUARIO(NOMBRES_USUARIO,APELLIDOS_USUARIO,EDAD_USUARIO,TELEFONO_USUARIO,CORREO_USUARIO,CLAVE_USUARIO,ID_CARGO_USUARIO,ESTADO_USUARIO)
+VALUES (NOMBRES_I,APELLIDOS_I,EDAD_I
+,TELEFONO_I,CORREO_I,CLAVE_I,CARGO_I,ESTADO_I);
+END##
+DELIMITER ;
+
+CALL INSERTS_USUARIOS
+('Corporacion','Artistica',25,663636,'KinesferaLab@gmail.com',MD5('1234'),1,'Activo');
+CALL INSERTS_USUARIOS
+('Felipe','Guzman',26,464464,'Felipe@gmail.com',MD5('1234'),2,'Activo');
+CALL INSERTS_USUARIOS
+('Carmen','Mazo',21,58448,'Carmen@gmail.com',MD5('1234'),2,'Activo');
+CALL INSERTS_USUARIOS
+('Raul','Mejia',19,485664,'Raul@gmail.com',MD5('1234'),3,'Activo');
+CALL INSERTS_USUARIOS
+('Juan','Gallo',18,976344,'Juan@gmail.com',MD5('1234'),3,'Activo');
+CALL INSERTS_USUARIOS
+('Jorge','Guerra',29,093737,'Jorge@gmail.com',MD5('1234'),1,'Activo');
+CALL INSERTS_USUARIOS
+('Luis','Quintana',27,423335,'Luis@gmail.com',MD5('1234'),4,'Activo');
+CALL INSERTS_USUARIOS
+('Leandro','Prado',22,74644,'Leandro@gmail.com',MD5('1234'),4,'Activo');
+CALL INSERTS_USUARIOS ('Sara','Calle',23,35444,'Sara@gmail.com',MD5('1234'),4,'Activo');
+CALL INSERTS_USUARIOS
+('Cindy','Garzon',19,74464,'Cindy@gmail.com',MD5('1234'),4,'Activo');
+
+/*insert noticia*/
+INSERT INTO NOTICIA (TITULO_NOTICIA,DESCRIPCION_NOTICIA,IMAGEN_NOTICIA,ID_USUARIO_NOTICIA) VALUES ('El Museo de Mujeres Artistas Mexicanas','El Museo de Mujeres Artistas Mexicanas es un recinto virtual que contiene un archivo de las pintoras, escultoras y fotografas del pais. De esta manera, el MUMA trata de motivar un dialogo amplio sobre el arte y el genero en Mexico.','imagenes_noticia/1.jpg',1);
+INSERT INTO NOTICIA (TITULO_NOTICIA,DESCRIPCION_NOTICIA,IMAGEN_NOTICIA,ID_USUARIO_NOTICIA) VALUES ('Hackear la realidad como acto poetico','Un siglo antes de los ciberataques mas sofisticados al Pentagono o de paralizar el sistema administrativo de toda una ciudad como Baltimore, el primer hackeo de la historia fue en codigo morse.','imagenes_noticia/2.jpg',1);
+
+/*insert galeria*/
+INSERT INTO IMAGENES(TITULO_IMAGEN,DESCRIPCION_IMAGEN,ARCHIVO_IMAGEN,TIPO_IMAGEN,ID_CLASE_IMAGEN,ID_REPOSITORIO_IMAGEN,ID_USUARIO_IMAGEN) VALUES ('Imagen1','Muestra artistica Kinesfera Lab','imagenes_galeria/1.jpg',1,3,1,1);
+INSERT INTO IMAGENES(TITULO_IMAGEN,DESCRIPCION_IMAGEN,ARCHIVO_IMAGEN,TIPO_IMAGEN,ID_CLASE_IMAGEN,ID_REPOSITORIO_IMAGEN,ID_USUARIO_IMAGEN) VALUES ('Imagen2','Muestra artistica Kinesfera Lab','imagenes_galeria/2.jpg',2,3,1,1);
+INSERT INTO IMAGENES(TITULO_IMAGEN,DESCRIPCION_IMAGEN,ARCHIVO_IMAGEN,TIPO_IMAGEN,ID_CLASE_IMAGEN,ID_REPOSITORIO_IMAGEN,ID_USUARIO_IMAGEN) VALUES ('Imagen3','Muestra artistica Kinesfera Lab','imagenes_galeria/3.jpg',3,3,1,1);
+INSERT INTO IMAGENES(TITULO_IMAGEN,DESCRIPCION_IMAGEN,ARCHIVO_IMAGEN,TIPO_IMAGEN,ID_CLASE_IMAGEN,ID_REPOSITORIO_IMAGEN,ID_USUARIO_IMAGEN) VALUES ('Imagen4','Muestra artistica Kinesfera Lab','imagenes_galeria/4.jpg',4,3,1,1);
+INSERT INTO IMAGENES(TITULO_IMAGEN,DESCRIPCION_IMAGEN,ARCHIVO_IMAGEN,TIPO_IMAGEN,ID_CLASE_IMAGEN,ID_REPOSITORIO_IMAGEN,ID_USUARIO_IMAGEN) VALUES ('Imagen5','Muestra artistica Kinesfera Lab','imagenes_galeria/5.jpg',5,3,1,1);
+INSERT INTO IMAGENES(TITULO_IMAGEN,DESCRIPCION_IMAGEN,ARCHIVO_IMAGEN,TIPO_IMAGEN,ID_CLASE_IMAGEN,ID_REPOSITORIO_IMAGEN,ID_USUARIO_IMAGEN) VALUES ('Imagen6','Muestra artistica Kinesfera Lab','imagenes_galeria/6.jpg',6,3,1,1);
+
+
+USE KINESFERA_LAB;
+DELIMITER ##
+CREATE PROCEDURE `VER_USUARIO`()
+BEGIN
+SELECT * FROM USUARIO;
+END##
+DELIMITER ;
+
+USE KINESFERA_LAB;
+DELIMITER ##
+CREATE PROCEDURE `ACTUALIZAR_CARGO`(
+ID_USUARIO_A INT,
+CARGO_A INT)
+BEGIN
+UPDATE USUARIO SET ID_CARGO_USUARIO=CARGO_A WHERE ID_USUARIO =
+ID_USUARIO_A;
+END##
+DELIMITER ;
+
+USE KINESFERA_LAB;
+DELIMITER ##
+CREATE PROCEDURE `ELIMINAR_USUARIO`(
+ID_USUARIO_E INT,
+ESTADO_USUARIO_E VARCHAR(20))
+BEGIN
+UPDATE USUARIO SET ESTADO_USUARIO =ESTADO_USUARIO_E WHERE
+ID_USUARIO = ID_USUARIO_E;
+END##
+DELIMITER ;
+
+/*CLASE*/
+USE KINESFERA_LAB;
+DELIMITER ##
+CREATE PROCEDURE INSERTS_CLASS (
+NOMBRE_CLASE_I VARCHAR(80),
+DESCRIPCION_CLASE_I VARCHAR(350),
+JORNADA_CLASE_I VARCHAR(30),
+HORARIOS_CLASE_I VARCHAR(50),
+COSTO_CLASE_I DECIMAL,
+TIEMPO_CLASE_I VARCHAR(50),
+IMAGEN_CLASE_I VARCHAR(1000),
+ID_CATEGORIA_CLASE_I INT)
+BEGIN
+INSERT INTO CLASE(NOMBRE_CLASE,DESCRIPCION_CLASE,JORNADA_CLASE,HORARIOS_CLASE,COSTO_CLASE,TIEMPO_CLASE,IMAGEN_CLASE,ID_CATEGORIA_CLASE) VALUES
+(NOMBRE_CLASE_I,DESCRIPCION_CLASE_I,JORNADA_CLASE_I
+,HORARIOS_CLASE_I,COSTO_CLASE_I,TIEMPO_CLASE_I,IMAGEN_CLASE_I,ID_CATEGORIA_CLASE_I);
+END##
+DELIMITER ;
+
+USE KINESFERA_LAB;
+DELIMITER ##
+CREATE PROCEDURE `DELETE_CLASE`(
+ID_CLASE_D INT)
+BEGIN
+DELETE FROM CLASE WHERE ID_CLASE=ID_CLASE_D;
+END##
+DELIMITER ;
+
+/*DOCUMENTO*/
+DELIMITER ##
+CREATE PROCEDURE `EDITAR_DOCUMENTO`(
+ID_DOCUMENTO_A INT,
+TITULO_DOCUMENTO_A VARCHAR(70),
+DESCRIPCION_DOCUMENTO_A VARCHAR(400),
+ARCHIVO_DOCUMENTO_A VARCHAR(6000),
+PAGINAS_DOCUMENTO_A INT,
+IMAGEN_DOCUMENTO_A VARCHAR(6000),
+TEMA_DOCUMENTO_A  INT,
+CLASE_DOCUMENTO_A INT
+)
+BEGIN
+UPDATE DOCUMENTO_PUBLICO SET TITULO_DOCUMENTO=TITULO_DOCUMENTO_A,DESCRIPCION_DOCUMENTO=DESCRIPCION_DOCUMENTO_A,ARCHIVO_DOCUMENTO=ARCHIVO_DOCUMENTO_A,PAGINAS_DOCUMENTO=PAGINAS_DOCUMENTO_A,IMAGEN_DOCUMENTO=IMAGEN_DOCUMENTO_A,TEMA_DOCUMENTO=TEMA_DOCUMENTO_A,CLASE_DOCUMENTO=CLASE_DOCUMENTO_A WHERE ID_DOCUMENTO =ID_DOCUMENTO_A;
+END##
+DELIMITER ;
+
+USE KINESFERA_LAB;
+DELIMITER ##
+CREATE PROCEDURE `DELETE_DOCUMENTO`(
+ID_DOCUMENTO_D INT)
+BEGIN
+DELETE FROM DOCUMENTO_PUBLICO WHERE ID_DOCUMENTO=ID_DOCUMENTO_D;
+END##
+DELIMITER ;
+
+/*NOTICIA*/
+DELIMITER ##
+CREATE PROCEDURE `EDITAR_NOTICIA`(
+ID_NOTICIA_A INT,
+TITULO_NOTICIA_A VARCHAR(70),
+DESCRIPCION_NOTICIA_A VARCHAR(400),
+IMAGEN_NOTICIA_A VARCHAR(6000),
+ID_USUARIO_NOTICIA_A INT
+)
+BEGIN
+UPDATE NOTICIA SET TITULO_NOTICIA=TITULO_NOTICIA_A,DESCRIPCION_NOTICIA=DESCRIPCION_NOTICIA_A,IMAGEN_NOTICIA=IMAGEN_NOTICIA_A,ID_USUARIO_NOTICIA=ID_USUARIO_NOTICIA_A WHERE ID_NOTICIA =ID_NOTICIA_A;
+END##
+DELIMITER ;
+
+DELIMITER ##
+CREATE PROCEDURE `DELETE_NOTICIA`(
+ID_NOTICIA_D INT)
+BEGIN
+DELETE FROM NOTICIA WHERE ID_NOTICIA=ID_NOTICIA_D;
+END##
+DELIMITER ;
+
+/*GALERIA*/
+DELIMITER ##
+CREATE PROCEDURE `EDITAR_GALERIA`(
+ID_IMAGEN_A INT,
+TITULO_IMAGEN_A VARCHAR(70),
+DESCRIPCION_IMAGEN_A VARCHAR(400),
+ARCHIVO_IMAGEN_A VARCHAR(6000),
+ID_CLASE_IMAGEN_A INT,
+ID_REPOSITORIO_IMAGEN_A INT,
+ID_USUARIO_IMAGEN_A INT
+)
+BEGIN
+UPDATE IMAGENES SET TITULO_IMAGEN=TITULO_IMAGEN_A,DESCRIPCION_IMAGEN=DESCRIPCION_IMAGEN_A,ARCHIVO_IMAGEN=ARCHIVO_IMAGEN_A,ID_CLASE_IMAGEN=ID_CLASE_IMAGEN_A,ID_REPOSITORIO_IMAGEN = ID_REPOSITORIO_IMAGEN_A,ID_USUARIO_IMAGEN=ID_USUARIO_IMAGEN_A WHERE ID_IMAGEN =ID_IMAGEN_A;
+END##
+DELIMITER ;
+
+DELIMITER ##
+CREATE PROCEDURE `DELETE_GALERIA`(
+ID_IMAGEN_D INT)
+BEGIN
+DELETE FROM IMAGENES WHERE ID_IMAGEN=ID_IMAGEN_D;
+END##
+DELIMITER ;
+
+
+
+/*VISTAS*/
+USE KINESFERA_LAB;
+CREATE VIEW
+BUSCAR_USUARIO AS
+SELECT * FROM USUARIO WHERE ID_CARGO_USUARIO=4;
+SELECT * FROM BUSCAR_USUARIO;

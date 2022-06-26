@@ -53,7 +53,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 </div>
             </a>
                 <?php }?>
-            <a href="registrar_aprendiz.php">
+            <a href="#">
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>
@@ -97,7 +97,8 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 <div class="ventanas" id="ventana1">
                     <div class="titulo ventana_noticias"><h3>Noticias</h3></div>
                     <div class="contenedor">
-                    <a href= "noticia/crear_noticia.php" class="boton_ventanas boton1">ver opciones</a> 
+                    <a href= "noticia/crear_noticia.php" class="boton_ventanas boton1">Nuevo</a> 
+                    <a href= "noticia/crear_noticia.php" class="boton_ventanas boton1">ver opciones</a>
                     </div>
                     
                 </div>
@@ -105,6 +106,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 <div class="ventanas">
                     <div class="titulo ventana_eventos"><h3>Eventos</h3></div>    
                     <div class="contenedor">
+                    <a href="eventos/crear_eventos.php" class="boton_ventanas boton2">Nuevo</a>
                     <a href="eventos/crear_eventos.php" class="boton_ventanas boton2">ver opciones</a>
                     </div>
                   
@@ -113,6 +115,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 <div class="ventanas">
                 <div class="titulo ventana_galeria"><h3>Galeria</h3></div>    
                     <div class="contenedor">
+                    <a href="galeria/crear_galeria.php" class="boton_ventanas boton3">Nuevo</a> 
                     <a href="galeria/crear_galeria.php" class="boton_ventanas boton3">ver opciones</a> 
                     </div>
                     
@@ -121,7 +124,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 <div class="ventanas">
                 <div class="titulo ventana_biblioteca"><h3>biblioteca</h3></div>    
                     <div class="contenedor">
-
+                    <a href= "biblioteca/crear_biblioteca.php" class="boton_ventanas boton4">Nuevo</a> 
                     <a href= "biblioteca/crear_biblioteca.php" class="boton_ventanas boton4">ver opciones</a> 
                     </div>
                     

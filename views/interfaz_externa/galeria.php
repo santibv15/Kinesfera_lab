@@ -1,3 +1,12 @@
+<?php
+
+include "../../models/class_documento/Documento.php";
+
+$conectar = new Conexion;
+$conexion = $conectar->conectarBD();
+
+?>
+
 <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
@@ -20,27 +29,25 @@
                 <a href="noticias.php">Noticias</a>
                 <a href="eventos.html">Eventos</a>
                 <a href="minibiblioteca.php">Biblioteca</a>
-                <a href="galeria.html">Galeria</a>
+                <a href="galeria.php">Galeria</a>
                 <a href="login.html">Ingresar</a>
             </nav>
         </header> <br>
        <!--  FIN MENU -->
 
        <!-- COMIENZO PORTAFOLIO -->
-
        <section class="container-grid">
-           <img src="../img/interfaz_externa/galeria/tres.jpg" alt="realizado por: KaterineMS@gmail.com " class="img img-1">
-           <img src="../img/interfaz_externa/galeria/dos.jpg" alt="realizado por: PedroEC@gmail.com " class="img img-2">
-           <img src="../img/interfaz_externa/galeria/nueve.jpg" alt="realizado por: PedroEH@gmail.com" class="img img-4">
-           <img src="../img/interfaz_externa/galeria/seis.jpg" alt="realizado por: JavierHS@gmail.com" class="img img-3">
-           <img src="../img/interfaz_externa/galeria/obra8.jpg" alt="realizado por: SandraMB@gmail.com" class="img img-5">
-           <img src="../img/interfaz_externa/galeria/fondo.jpg " alt="realizado por: MariaCZ@gmail.com" class="img img-6">
+       <?php  
+        $consulta = mysqli_query($conexion,"SELECT * FROM imagenes");
+        while($fila = mysqli_fetch_array($consulta)){?>
+           <img src="../../controllers/crud_galeria/<?php echo $fila['ARCHIVO_IMAGEN'] ?>" alt="realizado por: KaterineMS@gmail.com " class="img img-<?php echo $fila['TIPO_IMAGEN'] ?>">
+           <?php } ?>
            <div class="container-img">
                 <img src="" alt="" class="img-show">
                 <i class="bx bx-x"></i>
                 <p class="copy"></p>
            </div>
-       </section>
+        </section>
        <script src="../js/interfaz_externa/galeria.js"></script>
     </body>
 </html>

@@ -20,19 +20,6 @@ include ("../../models/class_noticia/Noticia.php");
                 $objNoticia = new Noticia ($titulo_noticia,$descripcion_noticia,$destino_imagen,$id_usuario_noticia);
                 $objNoticia->insertNoticia();
 
-                $consulta = mysqli_query($conexion,"SELECT * FROM NOTICIA") or die ($conexion."Problemas en la consulta");
-                    $num = mysqli_num_rows($consulta);
-        
-                    /* if ($num != 0){
-                
-                    while($fila = mysqli_fetch_array($consulta)){
-                        $_SESSION['ID_NOTICIA']= $fila['ID_NOTICIA '];
-                        $_SESSION['TITULO_NOTICIA'] = $fila['TITULO_NOTICIA'];
-                        $_SESSION['DESCRIPCION_NOTICIA'] = $fila['DESCRIPCION_NOTICIA'];
-                        $_SESSION['IMAGEN_NOTICIA '] = $fila['IMAGEN_NOTICIA '];
-                        $_SESSION['ID_USUARIO_NOTICIA'] = $fila['ID_USUARIO_NOTICIA'];
-                    } */
-
                 echo "<script>alert('Publicacion Exitosa')</script>";
                 echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";
 

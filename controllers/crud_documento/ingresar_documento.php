@@ -33,12 +33,12 @@ include ("../../models/class_documento/Documento.php");
                 }
                 }else{
                 echo "<script>alert('Solo se admiten archivos pdf')</script>";
-                echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";
+                echo "<script>window.location='../../views/interfaz_interna/admin/biblioteca/crear_biblioteca.php';</script>";
             }
 
         }else{
             echo "<script>alert('Solo se admiten imagenes .jpg .jpeg o .png')</script>";
-            echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";
+            echo "<script>window.location='../../views/interfaz_interna/admin/biblioteca/crear_biblioteca.php';</script>";
         }
         
     }

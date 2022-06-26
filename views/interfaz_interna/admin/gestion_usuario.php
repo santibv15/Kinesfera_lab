@@ -51,7 +51,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 </div>
             </a>
                 <?php }?>
-            <a href="registrar_aprendiz.php">
+            <a href="#">
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>

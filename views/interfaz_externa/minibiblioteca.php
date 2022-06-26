@@ -29,7 +29,7 @@ $conexion = $conectar->conectarBD();
             <a href="noticias.php">Noticias</a>
             <a href="eventos.html">Eventos</a>
             <a href="minibiblioteca.php">Biblioteca</a>
-            <a href="galeria.html">Galeria</a>
+            <a href="galeria.php">Galeria</a>
             <a href="login.html">Ingresar</a>
         </nav>
     </header> <br>
