@@ -10,7 +10,10 @@ class Documento extends Conexion{
     private $tema_documento;
     private $clase_documento;
 
-    public function __construct(String $titulo_documento,String $descripcion_documento,String $archivo_documento,int $paginas_documento,String $imagen_documento,int $tema_documento,int $clase_documento){
+    public function __construct(){
+    }
+
+    public function insertDocumento(String $titulo_documento,String $descripcion_documento,String $archivo_documento,int $paginas_documento,String $imagen_documento,int $tema_documento,int $clase_documento){
         $this->titulo_documento=$titulo_documento;
         $this->descripcion_documento=$descripcion_documento;
         $this->archivo_documento=$archivo_documento;
@@ -18,9 +21,7 @@ class Documento extends Conexion{
         $this->imagen_documento=$imagen_documento;
         $this->tema_documento=$tema_documento;
         $this->clase_documento=$clase_documento;
-    }
-
-    public function insertDocumento(){
+        
         $conectar = new Conexion;
         $conexion = $conectar->conectarBD();
 
