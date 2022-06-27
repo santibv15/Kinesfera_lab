@@ -7,6 +7,8 @@ session_start();
 if (!isset($_SESSION['ID_USUARIO'])){
    echo "<script>window.location='../../interfaz_externa/login.html';</script>";
 }
+
+$id_clase = $_POST['id_clase'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +16,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/interfaz_interna/formador/clase.css">
+    <link rel="stylesheet" href="../../css/interfaz_interna/formador/asignar.css">
     <title>KinesferaLab</title>
     <link rel="shortcut icon" href="../../img/logos/logotipo_principal.png">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -87,49 +89,59 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
     <!--FIN DE MENU-->
 
-<h1 class="titulo_clase">CLASES</h1>
- <div class="nueva_clase"><a href="gestion_clase.php" >Nueva clase</a></div>                   
-<div class="contenedor_principal">
-<?php
-    $conectar = new Conexion;
-    $conexion = $conectar->conectarBD();
-    $consulta = mysqli_query($conexion,"SELECT * FROM CLASE");
-      
-            while($fila = mysqli_fetch_array($consulta)){
+    <div  class="contenedor_principal_busqueda">
+        <h1 class="titulo_busqueda">Asignación <span class="diferente_color">Clases</span></h1>
+        <div class="contenedor_busqueda">
+            <form action="asignar_clase.php" method="post">
+     		    <input type="search" name="buscar_aprendiz" placeholder="Buscar Usuario" required class="buscar_usuario">
+                 <input type="text" name="id_clase" value="<?php echo $id_clase;?>" hidden>
+     		    <input type="submit" name="btn_buscar" value="Buscar" class="buscar_boton">
+     	    </form>
+        </div>
         
-            ?>
-<div class="contenedor_cards">
-    <label class = "card" for="item-1" id="selector-1">
-    <?php echo '<img class="image" src="../../../controllers/crud_clase/'.$fila["IMAGEN_CLASE"].'" alt="imagen curso">'; ?>
-    <p class="nom_clase"><?php echo $fila['NOMBRE_CLASE']; ?></p>
-    <form action="modificar_clase.php" method="post">
-   <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden> 
-   <input type="submit" class="btn modificar" name="btn_update" Value="Modificar"> 
-   </form>
+        <?php
+        if (isset($_POST['btn_buscar'])){
+            $id_clase = $_POST['id_clase'];
+            $aprendizSearch = $_POST['buscar_aprendiz'];
+            
+            $conectar = new Conexion;
+            $conexion = $conectar->conectarBD();
+            $Search = mysqli_query($conexion,"SELECT * FROM BUSCAR_APRENDICES WHERE  NOMBRES_USUARIO  LIKE '%$aprendizSearch%' or APELLIDOS_USUARIO  LIKE '%$aprendizSearch%'");
 
-   <form action="../../../controllers/crud_clase/delete_clase.php" method="post">
-   <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden>
-   <input type="submit" class="btn eliminar" name="btn_delete" Value="Eliminar" onclick="return confirmEliminar_clase()"> 
-   </form>
+            $numero = mysqli_num_rows($Search);
+            // Verifico que el resultado de la consulta sea mayor a 0
+            if ($numero > 0){
+                // Rescato todos los datos de la base de datos
+                while($fila = mysqli_fetch_array($Search)){
+                    
+        ?>
+        <div class="resultados_busqueda">
+            <i class='bx bx-user' id="icono_user"></i>
+            <h4 class="nom_resultado"><?php echo $fila['NOMBRES_USUARIO']; ?> <?php echo $fila['APELLIDOS_USUARIO']; ?></h4>
+            <h5 class="correo_resultado"><?php echo $fila['CORREO_USUARIO']; ?></h5>
+            <form action="../../../controllers/crud_clase/asignacion.php" method="post">
+     		    <input type="search" name="id_clase" value="<?php echo $id_clase; ?>" hidden>
+                <input type="search" name="id_usuario" value="<?php echo $fila['ID_USUARIO']; ?>" hidden>
+     		    <input type="submit" name="btn_asignar" value="Asignar" class="asignar_boton">
+     	    </form>
+        </div>
+        <?php 
+                } 
+            }else{
+        ?>
+        <div class="ningun_resultado">
+            <h4 class="alerta_resultado">El usuario se no encuentra regsitrado</h4>
+        </div>
 
-   <form action="asignar_clase.php" method="post">
-   <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden>
-   <input type="submit" class="btn anadir" name="btn_anadir" Value="Añadir"> 
-   </form>
+        <?php
+            }
+        }
+        ?>
 
-   <form action="#" method="post">
-   <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden>
-   <input type="submit" class="btn ver" name="btn_anadir" Value="Ver"> 
-   </form>
- </label>
-</div>
-<?php
-          }
-?>
- 
+    </div>
 
 
-   <script src="../../js/interfaz_interna/menu.js"></script>
+    <script src="../../js/interfaz_interna/menu.js"></script>
     <script src="../../js/interfaz_interna/alertas.js"></script>  
 </body>
 </html>
