@@ -134,7 +134,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
             </div>
             </main>
 
-    <<script src="../../js/interfaz_interna/menu.js"></script>
+    <script src="../../js/interfaz_interna/menu.js"></script>
     <script src="../../js/interfaz_interna/alertas.js"></script>
     </body>
 </html>
