@@ -1,4 +1,3 @@
-<!--
 <?php
 // Llamar la conexión
 include "../../../bd/Conexion.php";
@@ -8,27 +7,20 @@ session_start();
 if (!isset($_SESSION['ID_USUARIO'])){
    echo "<script>window.location='../../interfaz_externa/login.html';</script>";
 }
-
-$id_usuario = $_SESSION['ID_USUARIO'];
-$conectar = new Conexion;
-$conexion = $conectar->conectarBD();
 ?>
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/interfaz_interna/aprediz/clase_aprendiz.css">
     <title>KinesferaLab</title>
     <link rel="shortcut icon" href="../../img/logos/logotipo_principal.png">
-    <link rel="stylesheet" href="../../css/interfaz_interna/aprediz/aprendiz.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body id="body">
-    
+
 <header>
     <div class="icon__menu"><i class='bx bx-menu' id="btn_open"></i></div>
 </header>
@@ -93,47 +85,55 @@ $conexion = $conectar->conectarBD();
     </div>
 
     <!--FIN DE MENU-->
+<h1 class="titulo_clase">CLASES</h1> 
 
-    <div class="title">
-        <h1>Perfil</h1> 
-        <?php  
-        $consulta = mysqli_query($conexion,"SELECT * FROM USUARIO WHERE ID_USUARIO=$id_usuario");
-        while($fila = mysqli_fetch_array($consulta)){?>
-        <div class="caja">
-        <form action="../../../controllers/crud_usuario/editar_usuario.php" method="POST">
-        <div class="campos">
-            <i class='bx bxs-user'></i>
-            <input type="text" name="nombre" value="<?php echo $fila['NOMBRES_USUARIO'];?>" required>
-        </div>
-        <div class="campos">
-            <i class='bx bx-last-page' ></i>
-            <input type="text" name="apellido" value="<?php echo $fila['APELLIDOS_USUARIO'];?>" required>
-        </div>
-        <div class="campos">
-           <i class='bx bxs-hourglass'></i>
-            <input type="text" name="edad" value="<?php echo $fila['EDAD_USUARIO'];?>" required>
-        </div>
-        <div class="campos">
-            <i class='bx bxs-phone-call'></i>
-            <input type="text" name="telefono" value="<?php echo $fila['TELEFONO_USUARIO'];?>" required>
-        </div>
-        <div class="campos">
-           <i class='bx bx-envelope-open'></i>
-            <input type="text" name="correo" value="<?php echo $fila['CORREO_USUARIO'];?>" required>
-        </div>
-        <div class="campos">
-             <i class='bx bxs-key'></i>
-            <input type="password" name="clave" value="<?php echo base64_decode($fila['CLAVE_USUARIO']);?>" required>
-            <input type="text" name="id" value="<?php echo $fila['ID_USUARIO'];?>" hidden>
-        </div>
-        <input type="submit" name="btn_form" value="Actualizar informacion" class="boton_perfil">
-        </form>
-        </div>
-        <?php } ?>
-    
+<div class="contenedor_principal">
+<?php
+$id_usuario=$_SESSION['ID_USUARIO'];
+$conectar = new Conexion;
+$conexion = $conectar->conectarBD();
+
+$consultaUsuario = mysqli_query($conexion,"SELECT * FROM USUARIO_CLASE WHERE USUARIO_ID=$id_usuario");
+
+$numero = mysqli_num_rows($consultaUsuario);
+
+if ($numero > 0){
+
+while($fila = mysqli_fetch_array($consultaUsuario)){
+    $id_miclase=$fila['CLASE_ID'];
+    $consultaClase = mysqli_query($conexion,"SELECT * FROM CLASE WHERE ID_CLASE=$id_miclase");
+      
+            while($fila = mysqli_fetch_array($consultaClase)){
+        
+            ?>
+<div class="contenedor_cards">
+    <label class = "card" for="item-1" id="selector-1">
+    <?php echo '<img class="image" src="../../../controllers/crud_clase/'.$fila["IMAGEN_CLASE"].'" alt="imagen curso">'; ?>
+    <p class="nom_clase"><?php echo $fila['NOMBRE_CLASE']; ?></p>
+
+   <form action="#" method="post">
+   <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden>
+   <input type="submit" class="btn ver" name="btn_anadir" Value="Ver"> 
+   </form>
+ </label>
 </div>
-    
-    <script src="../../js/interfaz_interna/menu.js"></script>
-    <script src="../../js/interfaz_interna/alertas.js"></script>   
+<?php
+          }
+    }
+
+}else{
+    ?>
+    <div class="ningun_resultado">
+        <h4 class="alerta_resultado">Aun no te han Asignado una clase</h4>
+    </div>
+
+    <?php
+        }
+    ?>
+ 
+
+
+   <script src="../../js/interfaz_interna/menu.js"></script>
+    <script src="../../js/interfaz_interna/alertas.js"></script>  
 </body>
 </html>

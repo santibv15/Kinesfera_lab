@@ -1,10 +1,3 @@
-html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    line-height: 1.4;
-}
-
 *{
     margin: 0;
     padding: 0;
@@ -128,7 +121,7 @@ header{
 }
 
 .options__menu a:hover{
-    color: #e429e4;
+    color: #00AAF7;
 }
 
 .options__menu .option{
@@ -139,7 +132,7 @@ header{
 }
 
 .options__menu .option_uni{
-    margin-top: 16em;
+    margin-top: 8.5em;
 }
 
 .options__menu .option i{
@@ -154,7 +147,7 @@ header{
 }
 
 a.selected{
-    color:#B621B5;
+    color:#00AAF7;
 
 }
 
@@ -162,7 +155,7 @@ a.selected{
     content: "";
     width: 3px;
     height: 80%;
-    background: #e429e4;
+    background: #00AAF7;
     position: absolute;
     top: 10%;
     left: -30px;
@@ -196,80 +189,117 @@ a.selected{
 
 /*FIN DE MENU DEL ADMIN*/
 
-.encabezado_perfil {
-    width: 100%;
-    display: inline-block;
+.contenedor_principal_busqueda{
+    width: 80%;
+    height: 100vh;
+    margin-left: 15%;
+}
+
+.titulo_busqueda{
     text-align: center;
-    padding: 2%;
-    color: #fff;
-    position: fixed;
-    background-color: #FF1865;
-    font-size: 1.3em;
+    font-size: 4em;
+    padding-top: 10%;
+    font-family: "calibri";
+    color:#0378ad;
+}
+
+.titulo_busqueda .diferente_color{
+    color:#00AAF7;
+}
+
+.contenedor_busqueda{
+    margin-top: 2%;
+    width: auto;
+    height: 10%;
+    margin-left: 13%;
+}
+
+.buscar_usuario{
+    width: 45em;
+    height:3em;
+    padding-left: 0.5em;
+    border: 2px solid rgb(171, 167, 167);
 }
 
 
-.title{
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    padding: 2%;
-    color: #fff;
-    position: fixed;
-    background-color: #e429e4;
-    font-size: 1.3em;
-}
+.buscar_usuario:focus{
+    border: 2px solid rgb(7, 164, 255);
+    outline: none;
+  }
 
-
-.caja{
-
-    height: 25em;
-    width: 90%;
-    position: absolute;
-    margin-top:3%;
-    box-shadow: 0 0 20px 9px #ff61241f;
-   
-}
-
-.caja .campos{
-    width: 45%;
-    padding-bottom: 2%;
-    margin-top: 5%;
-    margin-left: 2%;
-    display: inline-block;
-    padding: 1%;
-
-}
-
-.caja .campos input{
-    width: 92%;
-    height: 3em;
-    margin-top: 0;
-    margin-left: 3em;
-    font-size: 18px;
-    padding-left: 4%;
-}
-
-.caja .campos i{
-    
- 
-    margin-left: -.2em;
-    font-size: 2.8em;
-    color: #e429e4;
-    position: absolute;
- 
-}
-
-.caja .boton_perfil{
-    background-color: #e429e4;
-    padding: 1%;
-    float: right;
-    margin:3%;
-    border:none;
+.buscar_boton{
+    padding: 1em 2em;
+    background-color: #0378ad;
     color: white;
+    border: none;
 }
 
-.caja .boton_perfil:hover{
+.buscar_boton:hover{
+    background-color: #00AAF7;
+}
+
+/* RESULATDO BUSQUEDA */
+.resultados_busqueda{
+    margin-left: 13%;
+    width: 76%;
+    height: 11.5%;
+    background-color: #aae4ff;
+    border-bottom: 2px solid #e4f7ff;
+}
+
+#icono_user{
+    background-color: rgb(111, 109, 109);
+    color: white;
+    font-size: 2em;
+    padding: 2%;
+    border-radius: 100%;
+    float: left;
+    margin: 1% 3% 1% 2%;
+}
+
+.nom_resultado{
+    padding-top: 11px;
+    font-size: 1.5em;
+    width: 67%;
+    float: left;
+}
+
+.correo_resultado{
+    font-size: 0.9em;
+    font-weight: 300;
+    width: 67%;
+    float: left;
+}
+
+form{
+    display: inline-block;
+}
+.asignar_boton{
+    padding: 0.7em;
+    background-color: #0378ad;
+    color: white;
+    border: none;
+    margin-left: 85%;
+    margin-top: 35%;
+}
+
+.asignar_boton:hover{
     cursor: pointer;
-    background-color:#f262f2;
-    transition: all .5s;
+}
+
+/* SIN RESULTADO */
+
+.ningun_resultado{
+    margin-left: 13%;
+    width: 76%;
+    height: 11.5%;
+    background-color: #d8d9d9;
+    border-bottom: 2px solid #e4f7ff;
+    text-align: center;
+}
+
+.alerta_resultado{
+    font-size: 1.5em;
+    color: rgb(150, 150, 150);
+    padding-top: 20px;
 }

@@ -199,9 +199,9 @@ a.selected{
 }
 
 .contenedor_principal{
-    width: 70%;
+    width: 80%;
     height: 100%;
-    margin-left: 20%;
+    margin-left: 25%;
     margin-bottom: 5%;
     margin-top: 7%;
 }
@@ -210,7 +210,7 @@ a.selected{
     width: 40%;
     height: 80%;
     display: inline-block;
-    margin-left: 6%;
+    margin-left: 3%;
     margin-top: 7%;
     border-radius: 5%;
     box-shadow: 0px 0px 20px 0px black;
@@ -224,7 +224,7 @@ a.selected{
 .image{
     border-radius: 5% 5% 0% 0%;
     width: 100%;
-    height: 9em;
+    height: 12em;
     -o-object-fit: cover;
     object-fit: cover;
 }
@@ -273,10 +273,32 @@ a.selected{
 }
 
 .btn:hover{
+    cursor: pointer;
     background-color: #037db6;
 }
-.btn_m:hover{
-    background-color: #037db6;
+
+.eliminar{
+    background-color: rgb(255, 55, 55);
+}
+
+.eliminar:hover{
+    cursor: pointer;
+    background-color: rgb(180, 33, 33);
+}
+
+.ver{
+    background-color: rgb(102, 99, 99);
+}
+
+.ver:hover{
+    background-color: rgb(67, 63, 63);
+}
+
+.anadir{
+    background-color: rgb(59, 172, 59);
+}
+.anadir:hover{
+    background-color: rgb(30, 135, 30);
 }
 
 .next01{
@@ -366,7 +388,7 @@ legend{
     width: 40%;
     height: 80%;
     display: inline-block;
-    margin-left: 32%;
+    margin-left: 28%;
     text-align: center;
     margin-top: 7%;
     border-radius: 5%;
@@ -386,7 +408,7 @@ legend{
 .nueva_clase{
     position:fixed;
     padding: 1%;
-    margin-top: 38%;
+    margin-top: 41%;
     margin-left: 75%;
     border-radius: 5%;
     background-color: #00AAF7;
@@ -399,4 +421,7 @@ legend{
 
 .contenedor_cards_mod, .contenedor_principal{
     display: inline-block;
+}
+.contenedor_principal{
+    margin-left: 15%;
 }
