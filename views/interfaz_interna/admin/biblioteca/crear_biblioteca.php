@@ -92,32 +92,34 @@ $consulta_tema = mysqli_query($conexion,"SELECT ID_TEMA,NOMBRE_TEMA FROM TEMA");
 
 
 
-    <div class="formulario">
+    <div class="formulario_biblioteca">
         <h1>Publicar Documento</h1>
         <div class="main">
-        <form action="../../../../controllers/crud_documento/ingresar_documento.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="titulo_documento" placeholder="Titulo" required>
+        <form class="form_biblioteca" action="../../../../controllers/crud_documento/ingresar_documento.php" method="post" enctype="multipart/form-data">
+        <input class="form__campo" type="text" name="titulo_documento" placeholder="Titulo" required>
         <textarea class="Control" name="descripcion_documento" rows="10" cols="40" placeholder="Descripcion"></textarea>
-        <label>Documento </label><input type="file" name="archivo_documento" accept=".pdf" required>
-        <input type="number" name="paginas_documento" placeholder="Cantidad de Paginas" required>
-        <label>Imagen Portada </label><input type="file" name="imagen_documento" accept="image/*" required>
-        <label for="tema_documento" class="input-cargo">Tema: </label> 
+        <div class="container_imagen"><label class="form_imagen">Documento </label><input type="file" name="archivo_documento" accept=".pdf" required></div>
+        <input class="form__campo" type="number" name="paginas_documento" placeholder="Cantidad de Paginas" required>
+        <div class="container_imagen">
+        <label class="form_imagen">Imagen Portada </label><input type="file" name="imagen_documento" accept="image/*" required>
+        <label class="form_imagen" for="tema_documento" class="input-cargo">Tema: </label> 
                 <select name="tema_documento" id="tema_documento" class="input-cargo-options">
                     <?php while($datos = mysqli_fetch_array($consulta_tema)){ ?>
                     <option value="<?php echo $datos['ID_TEMA']?>"><?php echo $datos['NOMBRE_TEMA']?></option>
                     <?php } ?>
                 </select>
-        <label for="clase_documento" class="input-cargo">Clase: </label> 
+        
+        <label class="form_imagen" for="clase_documento" class="input-cargo">Clase: </label> 
         <select name="clase_documento" id="clase_documento" class="input-cargo-options">
                     <?php while($datos = mysqli_fetch_array($consulta_clase)){ ?>
                     <option value="<?php echo $datos['ID_CLASE']?>"><?php echo $datos['NOMBRE_CLASE']?></option>
                     <?php } ?>
-                </select>
-        <input type="submit" name="btn_form" value="Publicar">
+                </select> </div>
+        <input class="boton_biblioteca" type="submit" name="btn_form" value="Publicar">
       </form>
     </div>
 </div>
-
+<a class="boton_volver-biblioteca" href="../publicaciones.php">Volver</a>
 
 <script src="../../../js/interfaz_interna/menu.js"></script>
 </body>

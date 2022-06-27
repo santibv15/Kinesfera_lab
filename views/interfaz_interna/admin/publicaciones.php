@@ -136,8 +136,6 @@ $conexion = $conectar->conectarBD();
             </div>
         </main>
 
-<<<<<<< HEAD
-=======
             <!-- NOTICIA -->
     <article class="curso" id="Noticias">
         <div class="container_click">
@@ -257,7 +255,6 @@ $conexion = $conectar->conectarBD();
     </article>
 
 
->>>>>>> 794cb2cf8743088842fc36ccd17042524a5439d7
     <script src="../../js/interfaz_interna/menu.js"></script>
     <script src="../../js/interfaz_interna/alertas.js"></script>
     </body>
