@@ -1,8 +1,8 @@
 <?php
 include ("../../models/class_documento/Documento.php");
 
-    if(isset($_POST['btn_form'])){
-
+    if(isset($_POST['btn_update'])){
+        $id_documento = $_POST['id_documento'];
         $titulo_documento = $_POST['titulo_documento'];
         $descripcion_documento = $_POST['descripcion_documento'];
         $archivo_documento = $_FILES['archivo_documento']['name'];
@@ -25,21 +25,24 @@ include ("../../models/class_documento/Documento.php");
                     $conectar = new Conexion;
                     $conexion = $conectar->conectarBD();
                     $objDocumento = new Documento ();
-                    $objDocumento->insertDocumento($titulo_documento,$descripcion_documento,$destino_archivo,$paginas_documento,$destino_imagen,$tema_documento,$clase_documento);
+                    $objDocumento->updateDocumento($id_documento,$titulo_documento,$descripcion_documento,$destino_archivo,$paginas_documento,$destino_imagen,$tema_documento,$clase_documento);
 
-                    echo "<script>alert('Publicacion Exitosa')</script>";
+                    echo "<script>alert('Actualizacion Exitosa')</script>";
                     echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";
                     }
                 }
                 }else{
                 echo "<script>alert('Solo se admiten archivos pdf')</script>";
-                echo "<script>window.location='../../views/interfaz_interna/admin/biblioteca/crear_biblioteca.php';</script>";
+                echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";
             }
 
         }else{
             echo "<script>alert('Solo se admiten imagenes .jpg .jpeg o .png')</script>";
-            echo "<script>window.location='../../views/interfaz_interna/admin/biblioteca/crear_biblioteca.php';</script>";
+            echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";
         }
         
     }
     
+
+
+

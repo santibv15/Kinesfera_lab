@@ -11,7 +11,10 @@ class Galeria extends Conexion{
     private $id_usuario_imagen;
 
 
-    public function __construct(String $titulo_imagen,String $descripcion_imagen,String $archivo_imagen,int $tipo_imagen,int $id_clase_imagen,int $id_repositorio_imagen,int $id_usuario_imagen){
+    public function __construct(){
+    }
+
+    public function insertImagen(String $titulo_imagen,String $descripcion_imagen,String $archivo_imagen,int $tipo_imagen,int $id_clase_imagen,int $id_repositorio_imagen,int $id_usuario_imagen){
         $this->titulo_imagen = $titulo_imagen;
         $this->descripcion_imagen = $descripcion_imagen;
         $this->archivo_imagen = $archivo_imagen;
@@ -19,9 +22,7 @@ class Galeria extends Conexion{
         $this->id_clase_imagen = $id_clase_imagen;
         $this->id_repositorio_imagen = $id_repositorio_imagen;
         $this->id_usuario_imagen = $id_usuario_imagen;
-    }
-
-    public function insertImagen(){
+        
         $conectar = new Conexion;
         $conexion = $conectar->conectarBD();
 
@@ -30,20 +31,17 @@ class Galeria extends Conexion{
         $insert->execute();
     }
 
-    public function updateImagen(int $id_imagen,String $titulo_imagen,String $descripcion_imagen,String $archivo_imagen,int $id_clase_imagen,int $id_repositorio_imagen,int $id_usuario_imagen){
+    public function updateImagen(int $id_imagen,String $titulo_imagen,String $descripcion_imagen,String $archivo_imagen){
         $this->id_imagen = $id_imagen;
         $this->titulo_imagen = $titulo_imagen;
         $this->descripcion_imagen = $descripcion_imagen;
         $this->archivo_imagen = $archivo_imagen;
-        $this->id_clase_imagen = $id_clase_imagen;
-        $this->id_repositorio_imagen = $id_repositorio_imagen;
-        $this->id_usuario_imagen = $id_usuario_imagen;
 
         $conectar = new Conexion;
         $conexion = $conectar->conectarBD();
 
-        $insert= mysqli_prepare($conexion,"CALL EDITAR_GALERIA(?,?,?,?,?,?,?);");
-        $insert->bind_param("isssiii",$this->id_imagen,$this->titulo_imagen,$this->descripcion_imagen,$this->archivo_imagen,$this->id_clase_imagen,$this->id_repositorio_imagen,$this->id_usuario_imagen);
+        $insert= mysqli_prepare($conexion,"CALL EDITAR_GALERIA(?,?,?,?)");
+        $insert->bind_param("isss",$this->id_imagen,$this->titulo_imagen,$this->descripcion_imagen,$this->archivo_imagen);
         $insert->execute();
     }
 

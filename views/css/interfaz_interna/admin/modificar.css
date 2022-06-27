@@ -121,7 +121,7 @@ header{
 }
 
 .options__menu a:hover{
-    color: #00AAF7;
+    color: #6cc33c;
 }
 
 .options__menu .option{
@@ -147,7 +147,7 @@ header{
 }
 
 a.selected{
-    color:#00AAF7;
+    color:#6cc33c;
 
 }
 
@@ -155,7 +155,7 @@ a.selected{
     content: "";
     width: 3px;
     height: 80%;
-    background: #00AAF7;
+    background: #6cc33c;
     position: absolute;
     top: 10%;
     left: -30px;
@@ -205,7 +205,7 @@ a.selected{
     padding: 1%;
     margin-top: 38%;
     border-radius: 5%;
-    background-color: #00AAF7;
+    background-color: #6cc33c;
 }
 
 .nueva_clase a {
@@ -239,12 +239,13 @@ a.selected{
 }
 .btn_publicar{
     padding: 10px 140px;
-    background-color: #00AAF7;
+    background-color: #6cc33c;
     border: none;
-    color:white;
+    color:#fff;
+
 }
 
-.btn_publicar{
+.btn_publicar:hover{
     cursor: pointer;
-    background-color: rgb(3, 70, 205);
+    background-color: #57af27;
 }

@@ -7,6 +7,10 @@ session_start();
 if (!isset($_SESSION['ID_USUARIO'])){
    echo "<script>window.location='../../interfaz_externa/login.html';</script>";
 }
+
+$conectar = new Conexion;
+$conexion = $conectar->conectarBD();
+
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +102,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <div class="titulo ventana_noticias"><h3>Noticias</h3></div>
                     <div class="contenedor">
                     <a href= "noticia/crear_noticia.php" class="boton_ventanas boton1">Nuevo</a> 
-                    <a href= "noticia/crear_noticia.php" class="boton_ventanas boton1">ver opciones</a>
+                    <a href= "#Noticias" class="boton_ventanas boton1">ver opciones</a>
                     </div>
                     
                 </div>
@@ -107,7 +111,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <div class="titulo ventana_eventos"><h3>Eventos</h3></div>    
                     <div class="contenedor">
                     <a href="eventos/crear_eventos.php" class="boton_ventanas boton2">Nuevo</a>
-                    <a href="eventos/crear_eventos.php" class="boton_ventanas boton2">ver opciones</a>
+                    <a href="#Eventos" class="boton_ventanas boton2">ver opciones</a>
                     </div>
                   
                 </div>
@@ -116,7 +120,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 <div class="titulo ventana_galeria"><h3>Galeria</h3></div>    
                     <div class="contenedor">
                     <a href="galeria/crear_galeria.php" class="boton_ventanas boton3">Nuevo</a> 
-                    <a href="galeria/crear_galeria.php" class="boton_ventanas boton3">ver opciones</a> 
+                    <a href="#Galeria" class="boton_ventanas boton3">ver opciones</a> 
                     </div>
                     
                 
@@ -125,15 +129,135 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 <div class="titulo ventana_biblioteca"><h3>biblioteca</h3></div>    
                     <div class="contenedor">
                     <a href= "biblioteca/crear_biblioteca.php" class="boton_ventanas boton4">Nuevo</a> 
-                    <a href= "biblioteca/crear_biblioteca.php" class="boton_ventanas boton4">ver opciones</a> 
+                    <a href= "#Biblioteca" class="boton_ventanas boton4">ver opciones</a> 
                     </div>
-
-                    
                     
                 </div>
             </div>
-            </main>
+        </main>
 
+<<<<<<< HEAD
+=======
+            <!-- NOTICIA -->
+    <article class="curso" id="Noticias">
+        <div class="container_click">
+        <h3 class="encabzados">Opciones Noticias</h3>
+            <?php  
+            $consulta = mysqli_query($conexion,"SELECT * FROM noticia");
+            while($fila = mysqli_fetch_array($consulta)){?>
+                <div class="contenido_publico">
+                    <div class="container_img"><img class ="imagen_publica" src="../../../controllers/crud_noticia/<?php echo $fila['IMAGEN_NOTICIA'] ?>" alt=""></div>
+                    <p class="texto titulo_text"><?php echo $fila['TITULO_NOTICIA'] ?></p>
+                    <p  class="texto"><?php echo $fila['DESCRIPCION_NOTICIA'] ?></p>
+                    <div class="botones">
+                        <form action="noticia/modificar_noticia.php" method="post">
+                        <input type="text" name="id_noticia" value="<?php echo $fila['ID_NOTICIA']; ?>" readonly hidden> 
+                        <input type="submit" class="btn_m" name="btn_update" Value="Modificar"> 
+                        </form>
+
+                        <form action="../../../controllers/crud_noticia/delete_noticia.php" method="post">
+                        <input type="text" name="id_noticia" value="<?php echo $fila['ID_NOTICIA']; ?>" readonly hidden>
+                        <input type="submit" class="btn_e" name="btn_delete" Value="Eliminar" onclick="return confirmEliminar_clase()"> 
+                        </form>
+                    </div>
+                </div>
+                <?php } ?>
+        </div>
+
+        <a href="#" class="close">X</a>
+    </article>
+
+    <!-- EVENTOS -->
+    <article class="curso" id="Eventos">
+        <div class="container_click">
+        <h3 class="encabzados">Opciones Eventos</h3>
+            <?php  
+            $consulta = mysqli_query($conexion,"SELECT * FROM noticia");
+            while($fila = mysqli_fetch_array($consulta)){?>
+                <div class="contenido_publico">
+                    <div class="container_img"><img class ="imagen_publica" src="../../../controllers/crud_noticia/<?php echo $fila['IMAGEN_NOTICIA'] ?>" alt=""></div>
+                    <p class="texto titulo_text"><?php echo $fila['TITULO_NOTICIA'] ?></p>
+                    <p  class="texto"><?php echo $fila['DESCRIPCION_NOTICIA'] ?></p>
+                    <div class="botones">
+                        <form action="noticia/modificar_noticia.php" method="post">
+                        <input type="text" name="id_noticia" value="<?php echo $fila['ID_NOTICIA']; ?>" readonly hidden> 
+                        <input type="submit" class="btn_m" name="btn_update" Value="Modificar"> 
+                        </form>
+
+                        <form action="../../../controllers/crud_noticia/delete_noticia.php" method="post">
+                        <input type="text" name="id_noticia" value="<?php echo $fila['ID_NOTICIA']; ?>" readonly hidden>
+                        <input type="submit" class="btn_e" name="btn_delete" Value="Eliminar" onclick="return confirmEliminar_clase()"> 
+                        </form>
+                    </div>
+                </div>
+                <?php } ?>
+        </div>
+
+        <a href="#" class="close">X</a>
+    </article>
+
+    <!-- GALERIA -->
+    <article class="curso" id="Galeria">
+        <div class="container_click">
+        <h3 class="encabzados">Opciones Galeria</h3>
+            <?php  
+            $consulta = mysqli_query($conexion,"SELECT * FROM imagenes");
+            while($fila = mysqli_fetch_array($consulta)){?>
+                <div class="contenido_publico">
+                    <div class="container_img"><img class ="imagen_publica" src="../../../controllers/crud_galeria/<?php echo $fila['ARCHIVO_IMAGEN'] ?>" alt=""></div>
+                    <p class="texto titulo_text"><?php echo $fila['TITULO_IMAGEN'] ?></p>
+                    <p  class="texto"><?php echo $fila['DESCRIPCION_IMAGEN'] ?></p>
+                    <div class="botones">
+                        <form action="galeria/modificar_galeria.php" method="post">
+                        <input type="text" name="id_imagen" value="<?php echo $fila['ID_IMAGEN']; ?>" readonly hidden> 
+                        <input type="submit" class="btn_m" name="btn_update" Value="Modificar"> 
+                        </form>
+
+                        <form action="../../../controllers/crud_galeria/delete_galeria.php" method="post">
+                        <input type="text" name="id_imagen" value="<?php echo $fila['ID_IMAGEN']; ?>" readonly hidden>
+                        <input type="submit" class="btn_e" name="btn_delete" Value="Eliminar" onclick="return confirmEliminar_clase()"> 
+                        </form>
+                    </div>
+                </div>
+                <?php } ?>
+        </div>
+
+        <a href="#" class="close">X</a>
+    </article>
+
+
+    <!-- BIBLIOTECA -->
+    <article class="curso" id="Biblioteca">
+        <div class="container_click">
+        <h3 class="encabzados">Opciones Biblioteca</h3>
+            <?php  
+            $consulta = mysqli_query($conexion,"SELECT * FROM documento_publico");
+            while($fila = mysqli_fetch_array($consulta)){?>
+                <div class="contenido_publico">
+                    <div class="container_img"><img class ="imagen_publica" src="../../../controllers/crud_documento/<?php echo $fila['IMAGEN_DOCUMENTO'] ?>" alt=""></div>
+                    <p class="texto titulo_text"><?php echo $fila['TITULO_DOCUMENTO'] ?></p>
+                    <p  class="texto"><?php echo $fila['DESCRIPCION_DOCUMENTO'] ?></p>
+                    <p  class="texto"><?php echo $fila['PAGINAS_DOCUMENTO'] ?></p>
+                    <div class="botones">
+                        <form action="biblioteca/modificar_biblioteca.php" method="post">
+                        <input type="text" name="id_documento" value="<?php echo $fila['ID_DOCUMENTO']; ?>" readonly hidden> 
+                        <input type="submit" class="btn_m" name="btn_update" Value="Modificar"> 
+                        </form>
+
+                        <form action="../../../controllers/crud_documento/delete_documento.php" method="post">
+                        <input type="text" name="id_documento" value="<?php echo $fila['ID_DOCUMENTO']; ?>" readonly hidden>
+                        <input type="submit" class="btn_e" name="btn_delete" Value="Eliminar" onclick="return confirmEliminar_clase()"> 
+                        </form>
+                 </div>
+                </div>
+                <?php } ?>
+        </div>
+
+        <a href="#" class="close">X</a>
+    </article>
+
+
+>>>>>>> 794cb2cf8743088842fc36ccd17042524a5439d7
     <script src="../../js/interfaz_interna/menu.js"></script>
     <script src="../../js/interfaz_interna/alertas.js"></script>
     </body>

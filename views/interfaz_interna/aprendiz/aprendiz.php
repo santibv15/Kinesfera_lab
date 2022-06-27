@@ -48,6 +48,12 @@ $conexion = $conectar->conectarBD();
                     <h4>Clases</h4>
                 </div>
             </a>
+            <a href="../admin/publicaciones.php" >
+                <div class="option" >
+                    <i class='bx bxs-folder-open'  title="Laboratorio Artistico"></i>
+                    <h4>Laboratorio Artistico</h4>
+                </div>
+            </a>
             <?php }else if($_SESSION['ID_CARGO_USUARIO']==3){?>
                 <a href="#" >
                 <div class="option">
@@ -60,12 +66,6 @@ $conexion = $conectar->conectarBD();
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>
-                </div>
-            </a>
-            <a href="../admin/publicaciones.php" >
-                <div class="option" >
-                    <i class='bx bxs-folder-open'  title="Laboratorio Artistico"></i>
-                    <h4>Laboratorio Artistico</h4>
                 </div>
             </a>
             <?php if($_SESSION['ID_CARGO_USUARIO']==1){?>
@@ -123,7 +123,7 @@ $conexion = $conectar->conectarBD();
         </div>
         <div class="campos">
              <i class='bx bxs-key'></i>
-            <input type="text" name="clave" value="<?php echo base64_decode($fila['CLAVE_USUARIO']);?>" required>
+            <input type="password" name="clave" value="<?php echo base64_decode($fila['CLAVE_USUARIO']);?>" required>
             <input type="text" name="id" value="<?php echo $fila['ID_USUARIO'];?>" hidden>
         </div>
         <input type="submit" name="btn_form" value="Actualizar informacion" class="boton_perfil">

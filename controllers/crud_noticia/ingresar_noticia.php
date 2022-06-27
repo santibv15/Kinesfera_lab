@@ -17,8 +17,8 @@ include ("../../models/class_noticia/Noticia.php");
 
                 $conectar = new Conexion;
                 $conexion = $conectar->conectarBD();
-                $objNoticia = new Noticia ($titulo_noticia,$descripcion_noticia,$destino_imagen,$id_usuario_noticia);
-                $objNoticia->insertNoticia();
+                $objNoticia = new Noticia ();
+                $objNoticia->insertNoticia($titulo_noticia,$descripcion_noticia,$destino_imagen,$id_usuario_noticia);
 
                 echo "<script>alert('Publicacion Exitosa')</script>";
                 echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";
