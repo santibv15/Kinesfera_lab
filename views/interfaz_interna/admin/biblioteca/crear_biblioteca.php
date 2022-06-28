@@ -40,7 +40,7 @@ $consulta_tema = mysqli_query($conexion,"SELECT ID_TEMA,NOMBRE_TEMA FROM TEMA");
 
         <div class="options__menu">
             <?php if($_SESSION['ID_CARGO_USUARIO']==1 or $_SESSION['ID_CARGO_USUARIO']==2){?>
-            <a href="../formador/clase01.php" >
+            <a href="../../formador/clase01.php" >
                 <div class="option">
                     <i class='bx bxs-home' title="inicio"></i>
                     <h4>Clases</h4>
@@ -54,7 +54,7 @@ $consulta_tema = mysqli_query($conexion,"SELECT ID_TEMA,NOMBRE_TEMA FROM TEMA");
                 </div>
             </a>
                 <?php }?>
-            <a href="#">
+            <a href="../explorar.php">
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>

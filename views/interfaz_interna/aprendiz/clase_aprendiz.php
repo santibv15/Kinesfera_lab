@@ -40,21 +40,21 @@ if (!isset($_SESSION['ID_USUARIO'])){
                     <h4>Clases</h4>
                 </div>
             </a>
-            <a href="../admin/publicaciones.php" >
+            <a href="../admin/publicaciones.php"  >
                 <div class="option" >
                     <i class='bx bxs-folder-open'  title="Laboratorio Artistico"></i>
                     <h4>Laboratorio Artistico</h4>
                 </div>
             </a>
             <?php }else if($_SESSION['ID_CARGO_USUARIO']==3){?>
-                <a href="../aprendiz/clase_aprendiz.php" >
+                <a href="../aprendiz/clase_aprendiz.php"  class="selected">
                 <div class="option">
                     <i class='bx bxs-home' title="inicio"></i>
                     <h4>Clases</h4>
                 </div>
             </a>
                 <?php }?>
-            <a href="#">
+            <a href="explorar.php">
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>
@@ -68,7 +68,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
                 </div>
             </a>
             <?php } ?>
-            <a href="../aprendiz/aprendiz.php" class="selected">
+            <a href="../aprendiz/aprendiz.php" >
                 <div class="option">
                     <i class='bx bx-user' title="perfil"></i>
                     <h4>Perfil</h4>

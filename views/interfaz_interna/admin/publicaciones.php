@@ -57,7 +57,7 @@ $conexion = $conectar->conectarBD();
                 </div>
             </a>
                 <?php }?>
-            <a href="#">
+            <a href="explorar.php">
                 <div class="option">
                     <i class='bx bx-world' title="Explorar"></i>
                     <h4>Explorar</h4>

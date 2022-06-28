@@ -1,10 +1,4 @@
-html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    line-height: 1.4;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Modak&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -20,7 +14,7 @@ body{
     margin-left: 80px;
     transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
     position: absolute;
-    width: 85%;
+    width: 100%;
     overflow-x: hidden;
    
     
@@ -128,7 +122,7 @@ header{
 }
 
 .options__menu a:hover{
-    color: #e429e4;
+    color: #6cc33c;
 }
 
 .options__menu .option{
@@ -139,7 +133,7 @@ header{
 }
 
 .options__menu .option_uni{
-    margin-top: 15em;
+    margin-top: 5em;
 }
 
 .options__menu .option i{
@@ -154,7 +148,7 @@ header{
 }
 
 a.selected{
-    color:#B621B5;
+    color:#6cc33c;
 
 }
 
@@ -162,7 +156,7 @@ a.selected{
     content: "";
     width: 3px;
     height: 80%;
-    background: #e429e4;
+    background: #6cc33c;
     position: absolute;
     top: 10%;
     left: -30px;
@@ -194,82 +188,109 @@ a.selected{
     
 }
 
-/*FIN DE MENU DEL ADMIN*/
-
-.encabezado_perfil {
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    padding: 2%;
-    color: #fff;
-    position: fixed;
-    background-color: #FF1865;
-    font-size: 1.3em;
+/*fin del menu */
+html.body{
+    display: grid;
+    height: 100%;
 }
-
-
-.title{
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    padding: 2%;
-    color: #fff;
-    position: fixed;
-    background-color: #e429e4;
-    font-size: 1.3em;
-}
-
-
-.caja{
-
-    height: 25em;
-    width: 90%;
-    position: absolute;
-    margin-top:3%;
-    box-shadow: 0 0 20px 9px #ff61241f;
-   
-}
-
-.caja .campos{
-    width: 45%;
-    padding-bottom: 2%;
-    margin-top: 5%;
-    margin-left: 2%;
-    display: inline-block;
-    padding: 1%;
-
-}
-
-.caja .campos input{
-    width: 92%;
-    height: 3em;
-    margin-top: 0;
-    margin-left: 3em;
-    font-size: 18px;
-    padding-left: 4%;
-}
-
-.caja .campos i{
+body{
+    scroll-behavior: smooth;
     
- 
-    margin-left: -.2em;
-    font-size: 2.8em;
-    color: #e429e4;
-    position: absolute;
- 
+}
+.Container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-image: url(../../../img/interfaz_interna/explorar/Social.jpg);
+    
+}
+.Container2{
+    height: 15%;
+    width: 100%;
+    background: linear-gradient(45deg, #7b00e0, #ae31d9);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    z-index: 10;
 }
 
-.caja .boton_perfil{
-    background-color: #e429e4;
-    padding: 1%;
-    float: right;
-    margin:3%;
-    border:none;
-    color: white;
+
+.menu {
+    color: rgb(255, 255, 255);
+    margin-top: 1%;
 }
 
-.caja .boton_perfil:hover{
+.icons{
+    list-style: none;
+}
+.icons li{
+    text-align: center;
+    height: 70px;
+    width: 70px;
+    display: inline-block;
+    margin: 0 10px;
     cursor: pointer;
-    background-color:#f262f2;
-    transition: all .5s;
+    position: relative;
 }
+.icons li:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+    background: linear-gradient(45deg, #7b00e0, #ae31d9);
+    transition: all 0.3s ease-in;
+}
+.icons li:hover:before{
+    transform: rotate(360deg);
+    border-radius: 100%;
+}
+.icons li a span{
+    font-size: 27px;
+    line-height: 70px;
+    color: #fff;
+    transition: all 0.3s ease-out;
+}
+.icons li:hover a span{
+    transform: scale(1.2);
+}
+
+.Principal{
+    width: 46%;
+    position: relative;
+    right: 20px;
+    margin-top: 20px;
+    
+}
+.Box{
+    padding: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    position: relative;
+    margin-top: 7%;
+    background-color: white;
+}
+
+img {
+    position: relative;
+    border-radius: 1%;
+    margin-top: 6%;
+}
+.Content{
+    margin-top: 5%;
+    margin: 20px;
+    text-align: center;
+}
+
+.Name{
+    text-align: center;
+    font-size: 60px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.indfo{
+    text-align: center;
+    
+}
+
+
