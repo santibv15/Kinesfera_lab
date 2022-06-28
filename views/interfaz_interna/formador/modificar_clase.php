@@ -112,7 +112,7 @@ if (!isset($_SESSION['ID_USUARIO'])){
            <img class="imagen_clase" src="../../../controllers/crud_clase/<?php echo $fila2["IMAGEN_CLASE"]?>" alt="imagen clase" width="400px" height="600px">
        </div>
                    <h1 class="title_modificar">Modificar</h1>
-                   <form action="update_clase.php" method="post" enctype="multipart/form-data">
+        <form action="../../../controllers/crud_clase/update_clase.php" method="post" enctype="multipart/form-data">
         <input class="campos" type="text" name="id_clase" value="<?php echo $fila2['ID_CLASE']; ?>" readonly hidden>
         <input class="campos" type="text" class="text" name="nombre_class" value="<?php  echo $fila2['NOMBRE_CLASE']; ?>" required><br><br>
         <textarea name="descrip_class" rows="10" cols="40"><?php  echo $fila2['DESCRIPCION_CLASE']; ?></textarea><br><br>

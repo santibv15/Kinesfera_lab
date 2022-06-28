@@ -1,7 +1,7 @@
 
 function confirmEliminar()
     {
-    var respuesta_eliminar = confirm("¿Quieres eliminar a este usuario?");
+    var respuesta_eliminar = confirm("¿Quieres eliminar?");
 
     if (respuesta_eliminar == true)
     {
@@ -59,7 +59,7 @@ function confirmSalir()
 
 function confirmEliminar_clase()
     {
-    var respuesta_eliminar = confirm("¿Quieres eliminar esta clase?");
+    var respuesta_eliminar = confirm("¿Seguro Quieres Eliminar?");
 
     if (respuesta_eliminar == true)
     {
@@ -74,7 +74,7 @@ function confirmEliminar_clase()
 
 function confirmsubirc()
     {
-    var respuesta_eliminar = confirm("¿Quieres agregar esta clase?");
+    var respuesta_eliminar = confirm("¿Quieres Agregar?");
 
     if (respuesta_eliminar == true)
     {

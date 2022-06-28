@@ -110,7 +110,7 @@ $conexion = $conectar->conectarBD();
                 <div class="ventanas">
                     <div class="titulo ventana_eventos"><h3>Eventos</h3></div>    
                     <div class="contenedor">
-                    <a href="eventos/crear_eventos.php" class="boton_ventanas boton2">Nuevo</a>
+                    <a href="#" class="boton_ventanas boton2">Nuevo</a>
                     <a href="#Eventos" class="boton_ventanas boton2">ver opciones</a>
                     </div>
                   

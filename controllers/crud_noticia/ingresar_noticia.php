@@ -33,10 +33,6 @@ include ("../../models/class_noticia/Noticia.php");
 
 
     }
-/* $objNoticia->updateNoticia(2,'BAI','WUW','iJJS.jpg',2);
-
-$objNoticia->deleteNoticia(2); */
-
 
 
 ?>
