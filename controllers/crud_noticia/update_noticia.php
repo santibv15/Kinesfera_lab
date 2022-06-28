@@ -11,7 +11,7 @@ include ("../../models/class_noticia/Noticia.php");
         $objNoticia = new Noticia ();
         $objNoticia->updateNoticia($id_noticia,$titulo_noticia,$descripcion_noticia);
 
-        echo "<script>alert('Publicacion Exitosa')</script>";
+        echo "<script>alert('Actualizacion Exitosa')</script>";
         echo "<script>window.location='../../views/interfaz_interna/admin/publicaciones.php';</script>";
 
     }

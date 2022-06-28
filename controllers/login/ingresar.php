@@ -43,7 +43,7 @@ if (isset($_POST['btn_ingresar'])){
             echo "<script>window.location='../../views/interfaz_interna/formador/clase01.php';</script>";
         }else if($_SESSION['ID_CARGO_USUARIO']==3){
             echo "<script>alert('Bienvenido a Kinesfera Lab Aprendiz')</script>";
-            echo "<script>window.location='../../views/interfaz_interna/aprendiz/aprendiz.php';</script>";
+            echo "<script>window.location='../../views/interfaz_interna/aprendiz/clase_aprendiz.php';</script>";
         }else if($_SESSION['ID_CARGO_USUARIO']==4){
             echo "<script>alert('Todavia no tienes acceso a la plataforma')</script>";
             echo "<script>window.location='../../views/interfaz_externa/login.html';</script>";

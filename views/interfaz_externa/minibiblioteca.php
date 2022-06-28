@@ -53,7 +53,7 @@ $conexion = $conectar->conectarBD();
                 <p class="copy"><?php echo $fila['DESCRIPCION_DOCUMENTO'] ?></p>
                     
                     <h4 class="autor"><span>Autoria: </span>Kinesfera Lab</h4>
-                    <a href="../../controllers/crud_documento/<?php echo $fila['ARCHIVO_DOCUMENTO'] ?>" class="boton_leer">LEER LIBRO</a>
+                    <a href="../../controllers/crud_documento/<?php echo $fila['ARCHIVO_DOCUMENTO'] ?>" class="boton_leer" target="_blank">LEER LIBRO</a>
         </div>
         <?php } ?>
         </div>

@@ -45,7 +45,6 @@ $conexion = $conectar->conectarBD();
            <div class="container-img">
                 <img src="" alt="" class="img-show">
                 <i class="bx bx-x"></i>
-                <p class="copy"></p>
            </div>
         </section>
        <script src="../js/interfaz_externa/galeria.js"></script>

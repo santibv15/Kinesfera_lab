@@ -114,10 +114,10 @@ if (!isset($_SESSION['ID_USUARIO'])){
 
    <form action="asignar_clase.php" method="post">
    <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden>
-   <input type="submit" class="btn anadir" name="btn_anadir" Value="Añadir"> 
+   <input type="submit" class="btn anadir" name="btn_anadir" Value="Aprendices"> 
    </form>
 
-   <form action="#" method="post">
+   <form action="../aprendiz/vista_clase.php" method="post">
    <input type="text" name="id_clase" value="<?php echo $fila['ID_CLASE']; ?>" readonly hidden>
    <input type="submit" class="btn ver" name="btn_anadir" Value="Ver"> 
    </form>
